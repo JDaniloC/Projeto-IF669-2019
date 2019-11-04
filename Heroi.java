@@ -1,4 +1,4 @@
-public class Monstro extends Personagem{
+public class Heroi extends Personagem{
     private String[] informacoes;
     private String nome;
     private int vida;
@@ -10,7 +10,7 @@ public class Monstro extends Personagem{
     private Magia poderes;
     private Equipamento loot;
 
-    public Monstro (String nome, int vida, int ataque, int defesa, int movimentos, int nivel, String[] fraqueza, Magia poder; Equipamento loot){
+    public Heroi (String nome, int vida, int ataque, int defesa, int movimentos, int nivel, String[] fraqueza, Magia poder; Equipamento loot){
         this.nome = nome;
         this.vida = vida;
         this.ataque = ataque;
@@ -25,9 +25,9 @@ public class Monstro extends Personagem{
     }
 
     public Equipamento morre() {
-        return loot;
+        return super.morre();
     }
-    public void Up(){ }
+    public void Up(){ super.Up(); }
 
     public void reestrutura(){ super.reestrutura(); }
     public void normalizeAtaque() { super.normalizeAtaque(); }
@@ -63,4 +63,5 @@ public class Monstro extends Personagem{
     public void setNivel(int nivel){ super.setNivel(nivel); }
     public void setPoderes (Magia poderes){ super.setPoderes(poderes); }
     public void setFraqueza(String[] fraqueza) { super.setFraqueza(fraqueza); }
+
 }

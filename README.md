@@ -1,6 +1,6 @@
 # Projeto-IF669-IP
 
-> Um RPG em Java.
+> RPG Companion
 
 ### Integrantes
 - João Mazzarolo
@@ -9,11 +9,11 @@
 - Thiago Henrique
 
 ## Classes bases:
-- [ ] Heróis
-- [x] Monstros
-- [ ] Equipamentos
-- [ ] Magias
-- [ ] Cidades
+- [x] Herói
+- [x] Monstro
+- [ ] Equipamento
+- [ ] Magia
+- [ ] Cidade
 
 ## Repositórios:
 - [ ] de Heróis
@@ -23,7 +23,7 @@
 - [ ] de Cidades
 
 ## Classe abstrata:
-- [ ] Personagem
+- [x] Personagem
  - Heróis
  - Monstros
 
