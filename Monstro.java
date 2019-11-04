@@ -10,7 +10,7 @@ public class Monstro extends Personagem{
     private Magia poderes;
     private Equipamento loot;
 
-    public Monstro (String nome, int vida, int ataque, int defesa, int movimentos, int nivel, String[] fraqueza, Magia poder; Equipamento loot){
+    public Monstro (String nome, int vida, int ataque, int defesa, int movimentos, int nivel, String[] fraqueza, Magia poder, Equipamento loot){
         this.nome = nome;
         this.vida = vida;
         this.ataque = ataque;

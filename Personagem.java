@@ -10,13 +10,8 @@ public abstract class Personagem {
     private Magia poderes;
     private Equipamento loot;
 
-    public Equipamento morre() { return null; }
-    public void Up(){
-        upgradeVida(100);
-        upgradeAtaque(10);
-        upgradeDefesa(5);
-        upgradeMovimentos(2);
-    }
+    public abstract Equipamento morre();
+    public abstract void Up();
 
     public void reestrutura(){
         /*

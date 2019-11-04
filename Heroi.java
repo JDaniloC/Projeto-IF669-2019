@@ -10,7 +10,7 @@ public class Heroi extends Personagem{
     private Magia poderes;
     private Equipamento loot;
 
-    public Heroi (String nome, int vida, int ataque, int defesa, int movimentos, int nivel, String[] fraqueza, Magia poder; Equipamento loot){
+    public Heroi (String nome, int vida, int ataque, int defesa, int movimentos, int nivel, String[] fraqueza, Magia poder, Equipamento loot){
         this.nome = nome;
         this.vida = vida;
         this.ataque = ataque;
@@ -25,9 +25,14 @@ public class Heroi extends Personagem{
     }
 
     public Equipamento morre() {
-        return super.morre();
+        return null;
     }
-    public void Up(){ super.Up(); }
+    public void Up(){ 
+        upgradeVida(100);
+        upgradeAtaque(10);
+        upgradeDefesa(5);
+        upgradeMovimentos(2);
+     }
 
     public void reestrutura(){ super.reestrutura(); }
     public void normalizeAtaque() { super.normalizeAtaque(); }
