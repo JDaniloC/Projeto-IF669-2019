@@ -3,28 +3,29 @@
 > Um RPG em Java.
 
 ### Integrantes
-- Alice
 - João Mazzarolo
 - José Danilo
 - Julio
-- Thiago
+- Thiago Henrique
 
 ## Classes bases:
-- [ ] Personagens
+- [ ] Heróis
 - [x] Monstros
 - [ ] Equipamentos
 - [ ] Magias
 - [ ] Cidades
 
 ## Repositórios:
-- [ ] de Personagens
+- [ ] de Heróis
 - [ ] de Monstros
 - [ ] de Equipamentos
 - [ ] de Magias
 - [ ] de Cidades
 
 ## Classe abstrata:
-- [ ] *Idéias*
+- [ ] Personagem
+ - Heróis
+ - Monstros
 
 ## Interface
 - [ ] Criada
