@@ -1,3 +1,5 @@
+package ClassesBasicas;
+
 public abstract class Personagem {
     private String[] informacoes;
     private String nome;
