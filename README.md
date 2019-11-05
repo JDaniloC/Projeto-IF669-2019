@@ -8,36 +8,41 @@
 - Julio
 - Thiago Henrique
 
-## Classes bases:
-- [x] Herói
-- [x] Monstro
-- [x] Equipamento
+## Desenvolvimento
+
+-------------
+
+### Classes bases:
+- [x] [Personagem](./src/ClassesBasicas/Personagem.java)
+- [x] [Herói](./src/ClassesBasicas/Heroi.java)
+- [x] [Monstro](./src/ClassesBasicas/Monstro.java)
+- [x] [Equipamento](./src/ClassesBasicas/Equipamento.java)
 - [ ] Magia
 - [ ] Cidade
 
-## Repositórios:
-> - [ ] de Personagens
->> - [ ] Interface
->>> - [ ] Array
->>> - [ ] Lista
-> - [ ] de Equipamentos
->> - [ ] Interface
->>> - [ ] Array
->>> - [ ] Lista
-> - [ ] de Magias
->> - [ ] Interface
->>> - [ ] Array
->>> - [ ] Lista
-> - [ ] de Cidades
->> - [ ] Interface
->>> - [ ] Array
->>> - [ ] Lista
+### Repositórios:
+ - [ ] de Personagens
+    - [x] [Interface](./src/Repositorios/RepositorioPersonagem.java)
+        - [ ] [Array](./src/Repositorios/RepositorioPersonagemArray.java)
+        - [ ] Lista
+ - [ ] de Equipamentos
+    - [x] [Interface](./src/Repositorios/RepositorioEquipamentos.java)
+        - [ ] [Array](./src/Repositorios/RepositorioEquipamentoArray.java)
+        - [ ] Lista
+ - [ ] de Magias
+    - [ ] Interface
+        - [ ] Array
+        - [ ] Lista
+ - [ ] de Cidades
+    - [ ] Interface
+        - [ ] Array
+        - [ ] Lista
 
-## Classe abstrata:
+### Classe abstrata:
 - [x] Personagem
  - Heróis
  - Monstros
 
-## Fachada
+### Fachada
 - [ ] de Negócio
 - [ ] de Usuário
