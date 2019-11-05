@@ -11,21 +11,33 @@
 ## Classes bases:
 - [x] Herói
 - [x] Monstro
-- [ ] Equipamento
+- [x] Equipamento
 - [ ] Magia
 - [ ] Cidade
 
 ## Repositórios:
-- [ ] de Heróis
-- [ ] de Monstros
-- [ ] de Equipamentos
-- [ ] de Magias
-- [ ] de Cidades
+> - [ ] de Personagens
+>> - [ ] Interface
+>>> - [ ] Array
+>>> - [ ] Lista
+> - [ ] de Equipamentos
+>> - [ ] Interface
+>>> - [ ] Array
+>>> - [ ] Lista
+> - [ ] de Magias
+>> - [ ] Interface
+>>> - [ ] Array
+>>> - [ ] Lista
+> - [ ] de Cidades
+>> - [ ] Interface
+>>> - [ ] Array
+>>> - [ ] Lista
 
 ## Classe abstrata:
 - [x] Personagem
  - Heróis
  - Monstros
 
-## Interface
-- [ ] Criada
+## Fachada
+- [ ] de Negócio
+- [ ] de Usuário
