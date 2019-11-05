@@ -1,4 +1,4 @@
-package projetoteste;
+package ClassesBasicas;
 
 public class Equipamentos {
 	private String nome;
