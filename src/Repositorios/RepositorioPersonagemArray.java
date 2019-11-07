@@ -29,7 +29,7 @@ public class RepositorioPersonagemArray implements RepositorioPersonagem {
                 Personagem aux = colecao[i];
                 colecao[i] = colecao[i+1];
                 colecao[i+1] = aux;
-            } else if (colecao[i].getNome().equals(nome){
+            } else if (colecao[i].getNome().equals(nome)){
                 colecao[i] = null;
                 quantidade --;
             }

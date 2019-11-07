@@ -2,7 +2,7 @@ package Repositorios;
 
 import ClassesBasicas.Equipamento;
 
-public class RepositorioEquipamentoArray implements RepositorioEquipamentos {
+public class RepositorioEquipamentoArray implements RepositorioEquipamento {
 	private Equipamento[] ListaEquipamento;
 	private int posicao;
 	
@@ -20,7 +20,6 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamentos {
 		} else {
 			
 		}
-
 	}
 
 	public void remover(String nome) {
@@ -71,5 +70,4 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamentos {
 		}
         return null;
 	}
-
 }
