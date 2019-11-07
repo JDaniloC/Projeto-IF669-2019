@@ -1,9 +1,6 @@
 package Repositorios;
 import ClassesBasicas.Personagem;
-import ClassesBasicas.Mob;
 import java.util.Arrays;
-
-import com.sun.org.apache.xpath.internal.SourceTree;
 
 public class RepositorioPersonagemArray implements RepositorioPersonagem {
     private Personagem[] colecao;
