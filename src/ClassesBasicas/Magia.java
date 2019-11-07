@@ -44,7 +44,22 @@ public class Magia {
 		this.tipo = tipo;
 	}
 	
+	public Magia() {
+		this.nome = null;
+		this.dano = 0;
+		this.gasto = 0;
+		this.cura = 0;
+		this.efeito = null;
+		this.tipo = null;
+	}
 	
-	
+	public Magia(String nome, int dano, int gasto, int cura, String efeito, String tipo) {
+		this.nome = nome;
+		this.dano = dano;
+		this.gasto = gasto;
+		this.cura = cura;
+		this.efeito = efeito;
+		this.tipo = tipo;
+	}
 
 }
