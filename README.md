@@ -43,8 +43,8 @@
     - [x] [Nao existe](./src/Excecoes/PersonagemJaExisteException.java)
     - [x] [Ja existe](./src/Excecoes/PersonagemNaoExisteException.java)
 - [ ] Equipamento
-    - [ ] Ja cadastrado(./src/Excecoes/EquipamentoJaCadastradoException.java)
-    - [ ] Nao encontrado(./src/Excecoes/EquipamentoNaoEncontradoException.java)
+    - [ ] [Ja cadastrado](./src/Excecoes/EquipamentoJaCadastradoException.java)
+    - [ ] [Nao encontrado](./src/Excecoes/EquipamentoNaoEncontradoException.java)
 - [ ] Magia
     - [ ] Ja existe
     - [ ] Nao encontrada
