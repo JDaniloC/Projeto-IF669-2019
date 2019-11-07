@@ -1,9 +1,6 @@
 package Repositorios;
 import ClassesBasicas.Personagem;
-import ClassesBasicas.Mob;
 import java.util.Arrays;
-
-import com.sun.org.apache.xpath.internal.SourceTree;
 
 public class RepositorioPersonagemArray implements RepositorioPersonagem {
     private Personagem[] colecao;
@@ -32,7 +29,7 @@ public class RepositorioPersonagemArray implements RepositorioPersonagem {
                 Personagem aux = colecao[i];
                 colecao[i] = colecao[i+1];
                 colecao[i+1] = aux;
-            } else if (colecao[i].getNome().equals(nome){
+            } else if (colecao[i].getNome().equals(nome)){
                 colecao[i] = null;
                 quantidade --;
             }

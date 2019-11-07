@@ -17,22 +17,22 @@
 - [x] [Herói](./src/ClassesBasicas/Heroi.java)
 - [x] [Monstro](./src/ClassesBasicas/Monstro.java)
 - [x] [Equipamento](./src/ClassesBasicas/Equipamento.java)
-- [ ] Magia
+- [x] [Magia](./src/ClassesBasicas/Magia.java)
 - [ ] Cidade
 
 ### Repositórios:
  - [ ] de Personagens
     - [x] [Interface](./src/Repositorios/RepositorioPersonagem.java)
-        - [ ] [Array](./src/Repositorios/RepositorioPersonagemArray.java)
-        - [ ] Lista
+        - [x] [Array](./src/Repositorios/RepositorioPersonagemArray.java)
+        - [x] [Lista](./src/Repositorios/RepositorioPersonagemLista.java)
  - [ ] de Equipamentos
-    - [x] [Interface](./src/Repositorios/RepositorioEquipamentos.java)
-        - [ ] [Array](./src/Repositorios/RepositorioEquipamentoArray.java)
-        - [ ] Lista
+    - [x] [Interface](./src/Repositorios/RepositorioEquipamento.java)
+        - [x] [Array](./src/Repositorios/RepositorioEquipamentoArray.java)
+        - [x] [Lista](./src/Repositorios/RepositorioEquipamentoLista.java)
  - [ ] de Magias
-    - [ ] Interface
-        - [ ] Array
-        - [ ] Lista
+    - [x] [Interface](./src/Repositorios/RepositorioMagia.java)
+        - [ ] [Array](./src/Repositorios/RepositorioMagiaArray.java)
+        - [ ] [Lista](./src/Repositorios/RepositorioMagiaLista.java)
  - [ ] de Cidades
     - [ ] Interface
         - [ ] Array
