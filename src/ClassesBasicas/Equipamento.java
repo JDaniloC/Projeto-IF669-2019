@@ -1,6 +1,6 @@
 package ClassesBasicas;
 
-public class Equipamentos {
+public class Equipamento {
 	private String nome;
 	private int preco;
 	private int ataque;

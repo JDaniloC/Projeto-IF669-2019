@@ -1,4 +1,5 @@
 package ClassesBasicas;
+import ClassesBasicas.Equipamento;
 
 public abstract class Personagem {
     private String[] informacoes;
