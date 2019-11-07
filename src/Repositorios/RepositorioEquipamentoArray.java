@@ -1,4 +1,4 @@
-package Repositorio;
+package Repositorios;
 
 import ClassesBasicas.Equipamento;
 
