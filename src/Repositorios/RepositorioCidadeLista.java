@@ -1,6 +1,5 @@
 package Repositorios;
-
-import ClassesBasicas.Cidade
+import ClassesBasicas.Cidade;
 
 public class RepositorioCidadeLista implements RepositorioCidade{
     private Cidade cidade;

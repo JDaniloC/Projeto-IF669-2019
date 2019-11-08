@@ -1,6 +1,5 @@
 package Repositorios;
-
-import ClassesBasicas.Cidade
+import ClassesBasicas.Cidade;
 
 public class RepositorioCidadeArray implements RepositorioCidade {
     private Cidade[] cidadeArray = new Cidade [0];
@@ -46,5 +45,5 @@ public class RepositorioCidadeArray implements RepositorioCidade {
             }
         }
     }
-    }
+}
 

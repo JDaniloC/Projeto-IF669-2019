@@ -18,7 +18,7 @@
 - [x] [Monstro](./src/ClassesBasicas/Monstro.java)
 - [x] [Equipamento](./src/ClassesBasicas/Equipamento.java)
 - [x] [Magia](./src/ClassesBasicas/Magia.java)
-- [ ] Cidade
+- [x] [Cidade](./src/ClassesBasicas/Cidade.java)
 
 ### Repositórios:
  - [x] de Personagens
@@ -34,9 +34,9 @@
         - [ ] [Array](./src/Repositorios/RepositorioMagiaArray.java)
         - [x] [Lista](./src/Repositorios/RepositorioMagiaLista.java)
  - [ ] de Cidades
-    - [ ] Interface
-        - [ ] Array
-        - [ ] Lista
+    - [x] [Interface](./src/Repositorios/RepositorioCidade.java)
+        - [x] [Array](./src/Repositorios/RepositorioCidadeArray.java)
+        - [x] [Lista](./src/Repositorios/RepositorioCidadeLista.java)
 
 ### Excecoes:
 - [x] Personagem
