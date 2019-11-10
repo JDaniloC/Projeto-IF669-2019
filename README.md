@@ -29,9 +29,9 @@
     - [x] [Interface](./src/Repositorios/RepositorioEquipamento.java)
         - [x] [Array](./src/Repositorios/RepositorioEquipamentoArray.java)
         - [x] [Lista](./src/Repositorios/RepositorioEquipamentoLista.java)
- - [ ] de Magias
+ - [x] de Magias
     - [x] [Interface](./src/Repositorios/RepositorioMagia.java)
-        - [ ] [Array](./src/Repositorios/RepositorioMagiaArray.java)
+        - [x] [Array](./src/Repositorios/RepositorioMagiaArray.java)
         - [x] [Lista](./src/Repositorios/RepositorioMagiaLista.java)
  - [ ] de Cidades
     - [x] [Interface](./src/Repositorios/RepositorioCidade.java)
@@ -45,9 +45,9 @@
 - [ ] Equipamento
     - [ ] [Ja cadastrado](./src/Excecoes/EquipamentoJaCadastradoException.java)
     - [ ] [Nao encontrado](./src/Excecoes/EquipamentoNaoEncontradoException.java)
-- [ ] Magia
-    - [ ] Ja existe
-    - [ ] Nao encontrada
+- [x] Magia
+    - [x] Ja existe
+    - [x] Nao encontrada
 - [ ] Cidade
 
 ### Classe abstrata:
