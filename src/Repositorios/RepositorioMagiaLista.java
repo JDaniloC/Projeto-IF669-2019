@@ -1,6 +1,8 @@
 package Repositorios;
 
 import ClassesBasicas.Magia;
+import Excecoes.MagiaNaoEncontradoException;
+
 public class RepositorioMagiaLista implements RepositorioMagia {
 	private Magia magia;
 	private RepositorioMagiaLista proximo;
@@ -23,7 +25,7 @@ public class RepositorioMagiaLista implements RepositorioMagia {
 	}
 
 	@Override
-	public void atualizar(Magia magia) {
+	public void atualizar(Magia magia) throws MagiaNaoEncontradoException {		
 		if (this.proximo != null && this.magia.getNome().equals(magia.getNome())) {
 			this.magia = magia;
 		}
@@ -31,13 +33,13 @@ public class RepositorioMagiaLista implements RepositorioMagia {
 			this.atualizar(magia);
 		}
 		else {
-			//exceções
+			throw new MagiaNaoEncontradoException();
 		}
 		
 	}
 
 	@Override
-	public void remover(String nome) {
+	public void remover(String nome) throws MagiaNaoEncontradoException {
 		if (this.proximo != null && this.magia.getNome().equals(nome)) {
 			this.magia = this.proximo.magia;
 			this.proximo = this.proximo.proximo;
@@ -46,7 +48,7 @@ public class RepositorioMagiaLista implements RepositorioMagia {
 			this.proximo.remover(nome);
 		}
 		else {
-			//exceções
+			throw new MagiaNaoEncontradoException();
 		}
 		
 	}
