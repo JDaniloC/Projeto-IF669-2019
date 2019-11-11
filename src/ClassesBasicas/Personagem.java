@@ -102,6 +102,7 @@ public abstract class Personagem {
     public int getMovimentos() { return movimentos; }
     public int getNivel() { return nivel; }
     public String getNome(){ return nome; }
+    public String[] getFraqueza(){ return fraqueza; }
 
     public void setNome(String nome) { this.nome = nome; }
     public void setVida(int vida) { this.vida = vida; }

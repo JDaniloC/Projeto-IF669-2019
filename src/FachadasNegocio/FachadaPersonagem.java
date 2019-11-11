@@ -1,6 +1,7 @@
 package ClasseRegraNegocio;
 
 import ClassesBasicas.Personagem;
+import Excecoes.EntradaInvalidaException;
 import Excecoes.PersonagemJaExisteException;
 import Excecoes.PersonagemNaoExisteException;
 import Repositorios.RepositorioPersonagem;
@@ -40,8 +41,8 @@ public class FachadaPersonagem{
     public void reestrutura(String nome) throws PersonagemNaoExisteException{
         procurar(nome).reestrutura();
     }
-    public void normalizar(String nome, String escolha) throws PersonagemNaoExisteException{
-        person = procurar(nome);
+    public void normalizar(String nome, String escolha) throws PersonagemNaoExisteException, EntradaInvalidaException{
+        Personagem person = procurar(nome);
         switch (escolha){
             case "Ataque":
                 person.normalizeAtaque();
@@ -55,56 +56,75 @@ public class FachadaPersonagem{
             case "Movimento":
                 person.normalizeMovimento();
                 break;
-            default:
-                person.reestrutura(); // ???
-        }
-    }
-    public void upgrade(String nome, String escolha, int quant) throws PersonagemNaoExisteException{
-        person = procurar(nome);
-        switch (escolha){ // Verificar se não é negativo
-            case "Ataque":
-                person.upgradeAtaque(quant);
-                break;
-            case "Mp":
-                person.upgradeMp(quant);
-                break;
-            case "Defesa":
-                person.upgradeDefesa(quant);
-                break;
-            case "Movimento":
-                person.UpgradeMovimento(quant);
-                break;
-            case "Vida":
-                person.UpgradeVida(quant);
+            case "Tudo":
+                person.reestrutura();
                 break;
             default:
-                person.Up(); // ???
-        }
-    }
-    public void plus(String nome, String escolha, int quant) throws PersonagemNaoExisteException{
-        person = procurar(nome);
-        switch (escolha){ // Verificar se nenhum é negativo!!
-            case "Ataque":
-                person.plusAtaque(quant);
-                break;
-            case "Mp":
-                person.plusMp(quant);
-                break;
-            case "Defesa":
-                person.plusDefesa(quant);
-                break;
-            case "Movimento":
-                person.plusMovimento(quant);
-                break;
-            default:
-                person.plusVida(quant);
+                throw EntradaInvalidaException();
                 break;
         }
     }
-    public void dano(String nome, String escolha, int quant) throws PersonagemNaoExisteException{
-        person = procurar(nome);
+    public void upgrade(String nome, String escolha, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{
+        if (quant > 0){
+            Personagem person = procurar(nome);
+            switch (escolha){
+                case "Ataque":
+                    person.upgradeAtaque(quant);
+                    break;
+                case "Mp":
+                    person.upgradeMp(quant);
+                    break;
+                case "Defesa":
+                    person.upgradeDefesa(quant);
+                    break;
+                case "Movimento":
+                    person.UpgradeMovimento(quant);
+                    break;
+                case "Vida":
+                    person.UpgradeVida(quant);
+                    break;
+                case "Tudo":
+                    person.Up();
+                    break;
+                default:
+                    throw new EntradaInvalidaException();
+                    break;
+            }
+        } else{
+            throw new EntradaInvalidaException();
+        }
+    }
+    public void plus(String nome, String escolha, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{
+        if (quant > 0){
+            Personagem person = procurar(nome);
+            switch (escolha){ 
+                case "Ataque":
+                    person.plusAtaque(quant);
+                    break;
+                case "Mp":
+                    person.plusMp(quant);
+                    break;
+                case "Defesa":
+                    person.plusDefesa(quant);
+                    break;
+                case "Movimento":
+                    person.plusMovimento(quant);
+                    break;
+                case "Vida":
+                    person.plusVida(quant);
+                    break;
+                default:
+                    throw new EntradaInvalidaException();
+                    break;
+            }
+        } else{
+            throw new EntradaInvalidaException();
+        }
+    }
+    public void dano(String nome, String escolha, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{
+        Personagem person = procurar(nome);
         switch (escolha){
-            case "Ataque": // Verificar se tem fraqueza
+            case "Ataque":
                 person.danoAtaque(quant);
                 break;
             case "Mp":
@@ -117,41 +137,59 @@ public class FachadaPersonagem{
                 person.danoMovimento(quant);
                 break;
             default:
-                person.danoVida(quant);
-                break;
+                throw new EntradaInvalidaException();
+        }
+    }
+    public void danoVida(String nome, String condicao, int quant) throws PersonagemNaoExisteException{
+        if (quant > 0){
+            Personagem person = procurar(nome);
+            String[] fraco = person.getFraqueza();
+            for (int i = 0; i < fraco.length; i++){
+                if (fraco[i].equals(condicao)){
+                    quant += 10;
+                }
+            }
+            person.danoVida(quant);
+        } else{
+            throw new EntradaInvalidaException();
         }
     }
     public int getVida(String nome) throws PersonagemNaoExisteException{
-        person = procurar(nome);
+        Personagem person = procurar(nome);
         return person.getVida; 
     }
     public int getMp(String nome) throws PersonagemNaoExisteException {
-        person = procurar(nome); 
+        Personagem person = procurar(nome); 
         return person.getMp; 
     }
     public int getAtaque(String nome) throws PersonagemNaoExisteException{
-        person = procurar(nome);
+        Personagem person = procurar(nome);
         return person.getAtaque; 
     }
     public int getDefesa(String nome) throws PersonagemNaoExisteException {
-        person = procurar(nome); 
+        Personagem person = procurar(nome); 
         return person.getDefesa; 
     }
     public int getMovimentos(String nome) throws PersonagemNaoExisteException {
-        person = procurar(nome); 
+        Personagem person = procurar(nome); 
         return person.getMovimentos; 
     }
     public int getNivel(String nome) throws PersonagemNaoExisteException {
-        person = procurar(nome); 
+        Personagem person = procurar(nome); 
         return person.getNivel; 
     }
     public String getNome(String nome) throws PersonagemNaoExisteException{
-        person = procurar(nome);
+        Personagem person = procurar(nome);
         return person.getNome; 
     }
 
-    public void setNome(String nome, String novo) throws PersonagemNaoExisteException{ 
-        procurar(nome).setNome(novo);; // Verificar se o nome já existe!!
+    public void setNome(String nome, String novo) throws PersonagemNaoExisteException, PersonagemJaExisteException{ 
+        try {
+            procurar(novo);
+            throw new PersonagemJaExisteException();
+        } catch (Exception e) {
+            procurar(nome).setNome(novo);
+        }
     }
     public void setVida(String nome, int vida) throws PersonagemNaoExisteException{ 
         procurar(nome).setVida(vida); 
