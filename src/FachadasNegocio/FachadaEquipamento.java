@@ -22,7 +22,6 @@ public class FachadaEquipamento {
         	repEquipamento.remover(nome);
         } 
     }
-
     public boolean existe(String codigo) {
         return repEquipamento.existe(codigo);
     }

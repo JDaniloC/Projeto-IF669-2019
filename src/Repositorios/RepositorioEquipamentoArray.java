@@ -24,7 +24,6 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
 			throw new InventarioCheioException();
 		}
 	}
-
 	public void remover(String nome) throws EquipamentoNaoEncontradoException {
 		if (existe(nome)) {
 			for (int i = 0; i < ListaEquipamento.length; i++) {
@@ -45,7 +44,6 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
 			throw new EquipamentoNaoEncontradoException();
 		}
 	}
-
 	public void atualizar(Equipamento equipamento) throws EquipamentoNaoEncontradoException {
 		if(existe(equipamento.getNome())) {
 			for (int i = 0; i < ListaEquipamento.length; i++) {
