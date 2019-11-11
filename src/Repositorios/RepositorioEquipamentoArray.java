@@ -34,7 +34,6 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
                     i = ListaEquipamento.length;
                 }
             }
-			
 			for(int i = 0; i < ListaEquipamento.length-1; i++){
                 if(this.ListaEquipamento[i] == null && this.ListaEquipamento[i+1] != null){
                     this.ListaEquipamento[i] = this.ListaEquipamento[i+1];

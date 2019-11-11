@@ -5,11 +5,14 @@ import Excecoes.EquipamentoJaCadastradoException;
 import Excecoes.EquipamentoNaoEncontradoException;
 import Repositorios.RepositorioEquipamento;
 
-public class CadastroEquipamento {
+public class FachadaEquipamento {
 
 	private RepositorioEquipamento repEquipamento;
-	
-	public void cadastrar(Equipamento equipamento) throws EquipamentoJaCadastradoException {
+    
+    public FachadaEquipamento(RepositorioEquipamento rep){
+        repEquipamento = rep;
+    }
+	public void cadastrar(Equipamento equipamento) {
 		if (!this.repEquipamento.existe(equipamento.getNome())) {
 			repEquipamento.inserir(equipamento);
 		} else {

@@ -5,7 +5,7 @@
 ### Integrantes
 - João Mazzarolo
 - José Danilo
-- Julio
+- Julio Vinícius
 - Thiago Henrique
 
 ## Desenvolvimento
@@ -18,10 +18,10 @@
 - [x] [Monstro](./src/ClassesBasicas/Monstro.java)
 - [x] [Equipamento](./src/ClassesBasicas/Equipamento.java)
 - [x] [Magia](./src/ClassesBasicas/Magia.java)
-- [ ] Cidade
+- [x] [Cidade](./src/ClassesBasicas/Cidade.java)
 
 ### Repositórios:
- - [ ] de Personagens
+ - [x] de Personagens
     - [x] [Interface](./src/Repositorios/RepositorioPersonagem.java)
         - [x] [Array](./src/Repositorios/RepositorioPersonagemArray.java)
         - [x] [Lista](./src/Repositorios/RepositorioPersonagemLista.java)
@@ -32,17 +32,34 @@
  - [ ] de Magias
     - [x] [Interface](./src/Repositorios/RepositorioMagia.java)
         - [ ] [Array](./src/Repositorios/RepositorioMagiaArray.java)
-        - [ ] [Lista](./src/Repositorios/RepositorioMagiaLista.java)
+        - [x] [Lista](./src/Repositorios/RepositorioMagiaLista.java)
  - [ ] de Cidades
-    - [ ] Interface
-        - [ ] Array
-        - [ ] Lista
+    - [x] [Interface](./src/Repositorios/RepositorioCidade.java)
+        - [x] [Array](./src/Repositorios/RepositorioCidadeArray.java)
+        - [x] [Lista](./src/Repositorios/RepositorioCidadeLista.java)
+
+### Excecoes:
+- [x] Personagem
+    - [x] [Nao existe](./src/Excecoes/PersonagemJaExisteException.java)
+    - [x] [Ja existe](./src/Excecoes/PersonagemNaoExisteException.java)
+- [ ] Equipamento
+    - [ ] [Ja cadastrado](./src/Excecoes/EquipamentoJaCadastradoException.java)
+    - [ ] [Nao encontrado](./src/Excecoes/EquipamentoNaoEncontradoException.java)
+- [ ] Magia
+    - [ ] Ja existe
+    - [ ] Nao encontrada
+- [ ] Cidade
 
 ### Classe abstrata:
-- [x] Personagem
+- [x] [Personagem](./src/ClassesBasicas/Personagem.java)
  - Heróis
  - Monstros
 
-### Fachada
-- [ ] de Negócio
-- [ ] de Usuário
+### Fachada de Negócio
+- [x] [Personagem](./src/FachadasNegocio/FachadaPersonagem.java)
+- [ ] [Equipamento](./src/FachadasNegocio/FachadaEquipamento.java)
+- [ ] Cidade
+- [ ] Magia
+
+### Fachada Geral
+- [ ] [Feita](./src/FachadaGeral/FachadaGeral.java)
