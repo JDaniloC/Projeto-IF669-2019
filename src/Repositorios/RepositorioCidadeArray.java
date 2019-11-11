@@ -13,7 +13,6 @@ public class RepositorioCidadeArray implements RepositorioCidade {
         aux[cidadeArray.length] = cidade;
         this.cidadeArray = aux;
     }
-
     public boolean existe(String nome){
         for(int i = 0; i < this.cidadeArray.length; i++){
             if(nome.equals(this.cidadeArray[i].getCidade())){
@@ -22,7 +21,6 @@ public class RepositorioCidadeArray implements RepositorioCidade {
         }
         return false;
     }
-
     public Cidade procurar(String nome){
 
             for(int i = 0; i < this.cidadeArray.length; i++){
@@ -32,8 +30,7 @@ public class RepositorioCidadeArray implements RepositorioCidade {
             }
             return null;
         }
-
-    public void remove(String nome){
+    public void remover(String nome){
         for(int i = 0; i < this.cidadeArray.length; i++){
             if (nome.equals(cidadeArray[i].getCidade())) {
                 cidadeArray[i] = cidadeArray[cidadeArray.length - 1];
