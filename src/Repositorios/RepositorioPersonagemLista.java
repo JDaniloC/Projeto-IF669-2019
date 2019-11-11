@@ -1,5 +1,6 @@
 package Repositorios;
 import ClassesBasicas.Personagem;
+import Excecoes.PersonagemNaoExisteException;
 
 public class RepositorioPersonagemLista implements RepositorioPersonagem{
     private Personagem person;
@@ -15,14 +16,22 @@ public class RepositorioPersonagemLista implements RepositorioPersonagem{
         } else{
             if (next == null){
                 next = new RepositorioPersonagemLista();
-            }
+            } 
             next.inserir(person);
         }
     }
-    public void atualizar(Personagem person){
-        // Implementar!
+    public void atualizar(Personagem person) throws PersonagemNaoExisteException{
+        if (this.person != null && person.getNome().equals(this.person.getNome())){
+            this.person = person;
+        } else{
+            if (next != null){
+                next.atualizar(person);
+            } else{
+                throw new PersonagemNaoExisteException();
+            }
+        }
     }
-    public void remover(String nome){
+    public void remover(String nome) throws PersonagemNaoExisteException{
         if (person != null && person.getNome().equals(nome)){
             if (next != null){
                 person = next.person;
@@ -32,17 +41,26 @@ public class RepositorioPersonagemLista implements RepositorioPersonagem{
             }
         } else if (next != null) {
             next.remover(nome);
+        } else{
+            throw new PersonagemNaoExisteException();
         }
     }
-    public Personagem procurar(String nome){
+    public Personagem procurar(String nome) throws PersonagemNaoExisteException{
         if (person != null && person.getNome().equals(nome)){
             return person;
         } else if (next != null){
             return next.procurar(nome);
-        } 
-        return null;
+        } else{
+            throw new PersonagemNaoExisteException();
+        }
     }
     public boolean existe(String nome){
-        return procurar(nome) == null ? false : true;
+        if (person != null && person.getNome().equals(nome)){
+            return true;
+        } else if (next != null){
+            return next.existe(nome);
+        } else{
+            return false;
+        }
     }
 }
