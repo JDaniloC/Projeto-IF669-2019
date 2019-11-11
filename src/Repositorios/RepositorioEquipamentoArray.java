@@ -1,6 +1,9 @@
 package Repositorios;
 
 import ClassesBasicas.Equipamento;
+import Excecoes.EquipamentoJaCadastradoException;
+import Excecoes.EquipamentoNaoEncontradoException;
+import Excecoes.InventarioCheioException;
 
 public class RepositorioEquipamentoArray implements RepositorioEquipamento {
 	private Equipamento[] ListaEquipamento;
@@ -11,18 +14,18 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
 		this.posicao = 0;
 	}
 	
-	public void inserir(Equipamento equipamento) {
+	public void inserir(Equipamento equipamento) throws EquipamentoJaCadastradoException, InventarioCheioException {
 		if (existe(equipamento.getNome())) {
-
+			throw new EquipamentoJaCadastradoException();
 		} else if (this.posicao < ListaEquipamento.length) {
             this.ListaEquipamento[this.posicao] = equipamento;
             this.posicao = this.posicao + 1;
 		} else {
-			
+			throw new InventarioCheioException();
 		}
 	}
 
-	public void remover(String nome) {
+	public void remover(String nome) throws EquipamentoNaoEncontradoException {
 		if (existe(nome)) {
 			for (int i = 0; i < ListaEquipamento.length; i++) {
                 if (nome.equals(this.ListaEquipamento[i].getNome())) {
@@ -40,12 +43,20 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
             }
 		}
 		else {
-			
+			throw new EquipamentoNaoEncontradoException();
 		}
 	}
 
-	public void atualizar(Equipamento equipamentos) {
-
+	public void atualizar(Equipamento equipamentos) throws EquipamentoNaoEncontradoException {
+		if(existe(equipamento.getNome())) {
+			for (int i = 0; i < ListaEquipamento.length; i++) {
+                if (this.ListaEquipamento[i] == equipamento) {
+                    this.ListaEquipamento[i] = equipamento;
+                }
+            }
+        } else {
+            throw new EquipamentoNaoEncontradoException();
+        }
 	}
 
 	public boolean existe(String nome) {
@@ -57,16 +68,14 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
         return false;
     }
 
-	public Equipamento procurar(String nome) {
-
+	public Equipamento procurar(String nome) throws EquipamentoNaoEncontradoException {
 		for (int i = 0; i < ListaEquipamento.length; i++) {
             if (this.ListaEquipamento[i].getNome().equals(nome)) {
                 return ListaEquipamento[i];
-
             }
         }
 		if(!existe(nome)){
-            
+            throw new EquipamentoNaoEncontradoException();
 		}
         return null;
 	}
