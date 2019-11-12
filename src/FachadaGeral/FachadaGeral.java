@@ -1,6 +1,10 @@
 package FachadaGeral;
 
-import ClasseRegraNegocio.*;
+import FachadasNegocio.*;
+import ClassesBasicas.Equipamento;
+import ClassesBasicas.Heroi;
+import ClassesBasicas.Magia;
+import ClassesBasicas.Personagem;
 import Repositorios.*;
 import Excecoes.*;
 

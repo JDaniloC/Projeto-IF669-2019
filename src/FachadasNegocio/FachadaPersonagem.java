@@ -1,5 +1,6 @@
-package ClasseRegraNegocio;
+package FachadasNegocio;
 
+import ClassesBasicas.Magia;
 import ClassesBasicas.Personagem;
 import Excecoes.EntradaInvalidaException;
 import Excecoes.PersonagemJaExisteException;
@@ -60,8 +61,7 @@ public class FachadaPersonagem{
                 person.reestrutura();
                 break;
             default:
-                throw EntradaInvalidaException();
-                break;
+                throw new EntradaInvalidaException();                
         }
     }
     public void upgrade(String nome, String escolha, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{
@@ -78,17 +78,17 @@ public class FachadaPersonagem{
                     person.upgradeDefesa(quant);
                     break;
                 case "Movimento":
-                    person.UpgradeMovimento(quant);
+                    person.upgradeMovimentos(quant);
                     break;
                 case "Vida":
-                    person.UpgradeVida(quant);
+                    person.upgradeVida(quant);
                     break;
                 case "Tudo":
                     person.Up();
                     break;
                 default:
                     throw new EntradaInvalidaException();
-                    break;
+                    
             }
         } else{
             throw new EntradaInvalidaException();
@@ -108,14 +108,14 @@ public class FachadaPersonagem{
                     person.plusDefesa(quant);
                     break;
                 case "Movimento":
-                    person.plusMovimento(quant);
+                    person.plusMovimentos(quant);
                     break;
                 case "Vida":
                     person.plusVida(quant);
                     break;
                 default:
                     throw new EntradaInvalidaException();
-                    break;
+                    
             }
         } else{
             throw new EntradaInvalidaException();
@@ -140,7 +140,7 @@ public class FachadaPersonagem{
                 throw new EntradaInvalidaException();
         }
     }
-    public void danoVida(String nome, String condicao, int quant) throws PersonagemNaoExisteException{
+    public void danoVida(String nome, String condicao, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{
         if (quant > 0){
             Personagem person = procurar(nome);
             String[] fraco = person.getFraqueza();
@@ -156,31 +156,31 @@ public class FachadaPersonagem{
     }
     public int getVida(String nome) throws PersonagemNaoExisteException{
         Personagem person = procurar(nome);
-        return person.getVida; 
+        return person.getVida(); 
     }
     public int getMp(String nome) throws PersonagemNaoExisteException {
         Personagem person = procurar(nome); 
-        return person.getMp; 
+        return person.getMp(); 
     }
     public int getAtaque(String nome) throws PersonagemNaoExisteException{
         Personagem person = procurar(nome);
-        return person.getAtaque; 
+        return person.getAtaque(); 
     }
     public int getDefesa(String nome) throws PersonagemNaoExisteException {
         Personagem person = procurar(nome); 
-        return person.getDefesa; 
+        return person.getDefesa(); 
     }
     public int getMovimentos(String nome) throws PersonagemNaoExisteException {
         Personagem person = procurar(nome); 
-        return person.getMovimentos; 
+        return person.getMovimentos(); 
     }
     public int getNivel(String nome) throws PersonagemNaoExisteException {
         Personagem person = procurar(nome); 
-        return person.getNivel; 
+        return person.getNivel(); 
     }
     public String getNome(String nome) throws PersonagemNaoExisteException{
         Personagem person = procurar(nome);
-        return person.getNome; 
+        return person.getNome(); 
     }
 
     public void setNome(String nome, String novo) throws PersonagemNaoExisteException, PersonagemJaExisteException{ 
