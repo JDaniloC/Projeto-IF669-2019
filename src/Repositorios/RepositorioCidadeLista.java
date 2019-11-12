@@ -1,6 +1,10 @@
 package Repositorios;
-import ClassesBasicas.Cidade;
 
+import ClassesBasicas.Cidade;
+import ClassesBasicas.Equipamento;
+import ClassesBasicas.Monstro;
+
+// Definição e criação do repositório de Cidade com lista
 public class RepositorioCidadeLista implements RepositorioCidade{
     private Cidade cidade;
     private repositorioCidadeLista prox;
@@ -12,15 +16,17 @@ public class RepositorioCidadeLista implements RepositorioCidade{
 
     // Insere uma cidade na lista
     public void inserir(Cidade cidade){
-        if(this.prox==null){
+        if(this.cidade==null){
             this.cidade.setCidade(cidade.getCidade());
             this.cidade.setPopulacao(cidade.getPopulacao());
-            this.cidade.setVendedor(cidade.getVendedor());
+            this.cidade.vendedor = cidade.vendedor;
             this.cidade.setMissao(cidade.getMissao());
             this.cidade.setMonstro(cidade.getMonstro());
-        }else inserir(cidade);
+            this.prox = new RepositorioCidadeLista();
+        }else this.prox.inserir(cidade);
     }
 
+    // Verifica se uma cidade existe
     public boolean existe(String nome){
         if(nome.equals(cidade.getCidade())){
             return true;
@@ -31,6 +37,7 @@ public class RepositorioCidadeLista implements RepositorioCidade{
         }
     }
 
+    // Remove uma cidade da lista
     public void remover (Cidade cidade){
         if(this.cidade==null) //cidade não existe para remover
             return;
@@ -43,9 +50,10 @@ public class RepositorioCidadeLista implements RepositorioCidade{
         }else this.prox.remover(this.cidade.getCidade());
     }
 
+    // Procura uma cidade na lista
     public Cidade procurar(String nome){
         if(nome.equals(cidade.getCidade())||nome.equals(cidade.getMissao())||nome.equals(cidade.getMonstro())){
-            //printar os dados da cidade
+            return this.cidade;
         }else this.prox.procurar(nome);
         return null;
     }
