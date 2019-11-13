@@ -19,7 +19,7 @@ public class RepositorioEquipamentoLista implements RepositorioEquipamento {
 			this.equipamento = equipamento;
 			this.proximo = new RepositorioEquipamentoLista();
 		} 
-		else if (existe(this.getNome())) {
+		else if (existe(this.equipamento.getNome())) {
 			throw new EquipamentoJaCadastradoException();
 		}
 		else {
@@ -64,7 +64,7 @@ public class RepositorioEquipamentoLista implements RepositorioEquipamento {
 	}
 	@Override
 	public boolean existe(String nome) {
-		if (this.procurar(nome).equals(null)) {
+		if (this.equipamento.equals(null)) {
 			return false;
 		} else {
 			return true;

@@ -1,6 +1,7 @@
 package Repositorios;
 
 import ClassesBasicas.Magia;
+import Excecoes.MagiaJaExisteException;
 import Excecoes.MagiaNaoEncontradoException;
 
 public interface RepositorioMagia {
@@ -9,5 +10,4 @@ public interface RepositorioMagia {
     void remover(String nome) throws MagiaNaoEncontradoException;
     Magia procurar(String nome) throws MagiaNaoEncontradoException;    
     boolean existe(String nome);
-
 }

@@ -27,7 +27,6 @@ public class FachadaEquipamento {
             throw new EquipamentoNaoEncontradoException();
         }
     }
-
     public boolean existe(String codigo) {
         return repEquipamento.existe(codigo);
     }
