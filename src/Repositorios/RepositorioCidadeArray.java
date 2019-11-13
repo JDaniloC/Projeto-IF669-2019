@@ -54,4 +54,3 @@ public class RepositorioCidadeArray implements RepositorioCidade {
         }
     }
 }
-

@@ -8,4 +8,3 @@ public interface RepositorioCidade {
     boolean existe(String nome);
     Cidade procurar(String nome) throws CidadeNaoExisteException;
 }
-

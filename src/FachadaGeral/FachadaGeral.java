@@ -1,6 +1,10 @@
 package FachadaGeral;
 
-import ClasseRegraNegocio.*;
+import FachadasNegocio.*;
+import ClassesBasicas.Equipamento;
+import ClassesBasicas.Heroi;
+import ClassesBasicas.Magia;
+import ClassesBasicas.Personagem;
 import Repositorios.*;
 import Excecoes.*;
 
@@ -13,9 +17,27 @@ public class FachadaGeral{
         RepositorioPersonagem rep1 = informacoes[0].equals("Lista") ? new RepositorioPersonagemLista() : new RepositorioPersonagemArray();
         repPersonagem = new FachadaPersonagem(rep1);
     }
-    public void Adicionar(String informacoes) throws PersonagemJaExisteException{
+    public void adicionarPersonagem(String informacoes, String[] fraqueza) throws PersonagemJaExisteException, EquipamentoNaoEncontradoException, MagiaNaoEncontradaException, EntradaInvalidaException{
         String[] inf = informacoes.split(" ");
-        // Verifica se tem as magias, equipamentos, e adiciona.
+        if (inf.length == 10){
+            String nome = inf[0];
+            int vida = Integer.parseInt(inf[1]);
+            int mp = Integer.parseInt(inf[2]);
+            int ataque = Integer.parseInt(inf[3]);
+            int defesa = Integer.parseInt(inf[4]);
+            int movimentos = Integer.parseInt(inf[5]);
+            int nivel = Integer.parseInt(inf[6]);
+            Magia poder = procuraPoder(inf[7]);
+            Equipamento loot = procuraEquipamento(inf[8]);
+            Personagem novo = inf[9].equals("Heroi") ? new Heroi(nome, vida, mp, ataque, defesa, movimentos, nivel, fraqueza, poder, loot) : new Monstro(nome, vida, mp, ataque, defesa, movimentos, nivel, fraqueza, poder, loot);
+            repPersonagem.inserir(novo);
+        } else{
+            throw new EntradaInvalidaException();
+        }
+    }
+    
+    public void atualizaPersonagem(){
+        
     }
 
     //Cidade

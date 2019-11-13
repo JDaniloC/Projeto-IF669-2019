@@ -54,13 +54,16 @@ public class RepositorioMagiaLista implements RepositorioMagia {
 	}
 
 	@Override
-	public Magia procurar(String nome) {
+	public Magia procurar(String nome) throws MagiaNaoEncontradoException {
 		Magia magia = null;
 		if (this.proximo != null && this.magia.getNome().equals(nome)) {
 			magia = this.magia;
 		}
 		else if (this.proximo != null) {
 			magia = this.procurar(nome);
+		}
+		else {
+			throw new MagiaNaoEncontradoException();
 		}
 		return magia;
 	}

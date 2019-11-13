@@ -11,4 +11,3 @@ public interface RepositorioEquipamento {
 	void atualizar (Equipamento equipamentos) throws EquipamentoNaoEncontradoException;
 	boolean existe (String nome);
 	Equipamento procurar (String nome) throws EquipamentoNaoEncontradoException;
-}
