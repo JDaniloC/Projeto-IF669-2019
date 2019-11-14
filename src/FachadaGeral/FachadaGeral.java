@@ -9,36 +9,38 @@ import Repositorios.*;
 import Excecoes.*;
 
 public class FachadaGeral{
-    private RepositorioPersonagem repPersonagem;
+    private FachadaPersonagem fachadaPersonagem;
     private FachadaCidade fachadaCidade;
 
-    public FachadaGeral(String dados){
-        String informacoes[] = dados.split(" ");
-        RepositorioPersonagem rep1 = informacoes[0].equals("Lista") ? new RepositorioPersonagemLista() : new RepositorioPersonagemArray();
-        repPersonagem = new FachadaPersonagem(rep1);
-    }
-    public void adicionarPersonagem(String informacoes, String[] fraqueza) throws PersonagemJaExisteException, EquipamentoNaoEncontradoException, MagiaNaoEncontradaException, EntradaInvalidaException{
-        String[] inf = informacoes.split(" ");
-        if (inf.length == 10){
-            String nome = inf[0];
-            int vida = Integer.parseInt(inf[1]);
-            int mp = Integer.parseInt(inf[2]);
-            int ataque = Integer.parseInt(inf[3]);
-            int defesa = Integer.parseInt(inf[4]);
-            int movimentos = Integer.parseInt(inf[5]);
-            int nivel = Integer.parseInt(inf[6]);
-            Magia poder = procuraPoder(inf[7]);
-            Equipamento loot = procuraEquipamento(inf[8]);
-            Personagem novo = inf[9].equals("Heroi") ? new Heroi(nome, vida, mp, ataque, defesa, movimentos, nivel, fraqueza, poder, loot) : new Monstro(nome, vida, mp, ataque, defesa, movimentos, nivel, fraqueza, poder, loot);
-            repPersonagem.inserir(novo);
-        } else{
-            throw new EntradaInvalidaException();
-        }
+    public FachadaGeral(FachadaPersonagem person, FachadaCidade cidade){
+        /*
+        Construtor da classe, recebendo todas as fachadas.
+        */
+        fachadaPersonagem = person;
+        fachadaCidade = cidade;
     }
     
-    public void atualizaPersonagem(){
-        
-    }
+    public void adicionarPersonagem(Personagem novo) throws PersonagemJaExisteException, EquipamentoNaoEncontradoException, MagiaNaoEncontradaException, EntradaInvalidaException{ fachadaPersonagem.inserir(novo); }
+    public void atualizarPersonagem(Personagem novo) throws PersonagemJaExisteException, EquipamentoNaoEncontradoException, MagiaNaoEncontradaException, EntradaInvalidaException{ fachadaPersonagem.atualizar(novo); }
+    public void removerPersonagem(String nome) throws PersonagemNaoExisteException{ fachadaPersonagem.remover(nome); }
+    public Personagem procurarPersonagem(String nome) throws PersonagemNaoExisteException{ return fachadaPersonagem.procurar(nome); }
+
+    public void UpPersonagem(String nome) throws PersonagemNaoExisteException{ fachadaPersonagem.Up(); }
+    public void mataPersonagem(String nome) throws PersonagemNaoExisteException{ fachadaPersonagem.Morre(); }
+    public void reestruturaPersonagem(String nome) throws PersonagemNaoExisteException{ fachadaPersonagem.reestrutura(); }
+    public void normalizarPersonagem(String nome, String escolha) throws PersonagemNaoExisteException, EntradaInvalidaException{ fachadaPersonagem.normalizarPersonagem(nome, escolha); }
+    public void upgradePersonagem(String nome, String escolha, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{ fachadaPersonagem.upgrade(nome, escolha, quant); }
+    public void plusPersonagem(String nome, String escolha, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{ fachadaPersonagem.plus(nome, escolha, quant); }
+    public void danoPersonagem(String nome, String escolha, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{ fachadaPersonagem.dano(nome, escolha, quant); }
+    public void danoVidaPersonagem(String nome, String condicao, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{ fachadaPersonagem.danoVida(nome, condicao, quant); }
+
+    public int getVidaPersonagem(String nome) throws PersonagemNaoExisteException{ return fachadaPersonagem.getVida(nome); }
+    public int getMpPersonagem(String nome) throws PersonagemNaoExisteException { return fachadaPersonagem.getMp(nome); }
+    public int getAtaquePersonagem(String nome) throws PersonagemNaoExisteException{ return fachadaPersonagem.getAtaque(nome); }
+    public int getDefesaPersonagem(String nome) throws PersonagemNaoExisteException { return fachadaPersonagem.getDefesa(nome); }
+    public int getMovimentosPersonagem(String nome) throws PersonagemNaoExisteException { return fachadaPersonagem.getMovimentos(nome); }
+    public int getNivelPersonagem(String nome) throws PersonagemNaoExisteException { return fachadaPersonagem.getNivel(nome); }
+    public String getNomePersonagem(String nome) throws PersonagemNaoExisteException{ return fachadaPersonagem.getNome(nome); }
 
     //Cidade
 

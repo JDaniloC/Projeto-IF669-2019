@@ -11,9 +11,12 @@ public abstract class Personagem {
     private int movimentos;
     private int nivel;
     private String[] fraqueza;
-    private Magia poderes;
-    private Equipamento loot;
+    private RepositorioMagiaArray poderes;
+    private RepositorioEquipamentoArray loot;
 
+    /*
+    Metodos abstratos, devido a diferença de reações.
+    */
     public abstract Equipamento morre();
     public abstract void Up();
 
@@ -33,7 +36,7 @@ public abstract class Personagem {
     public void normalizeMovimento() { this.movimentos = Integer.parseInt(informacoes[4]); }
 
     /*
-    Funções upgrade aumentam os atributos modificando o natural.
+    Métodos upgrade aumentam os atributos modificando o natural.
      */
     public void upgradeVida(int plus){
         /*
@@ -61,7 +64,7 @@ public abstract class Personagem {
     }
 
     /*
-    Funções plus aumentam os atributos sem modificar o natural.
+    Métodos plus aumentam os atributos sem modificar o natural.
      */
     public void plusVida(int plus) {
         /*
@@ -79,7 +82,7 @@ public abstract class Personagem {
     public void plusMovimentos(int plus) { this.movimentos += plus; }
 
     /*
-    Funções dano diminuem o valor dos atributos.
+    Métodos dano diminuem o valor dos atributos.
      */
     public void danoVida(int dano) {
         this.vida -= dano;
@@ -93,7 +96,7 @@ public abstract class Personagem {
     public void danoMovimento(int dano) { this.movimentos -= dano; }
 
     /*
-    Funções get devolvem o valor requisitado.
+    Métodos get devolvem o valor requisitado.
      */
     public int getVida(){ return vida; }
     public int getMp() { return mp; }
@@ -103,7 +106,12 @@ public abstract class Personagem {
     public int getNivel() { return nivel; }
     public String getNome(){ return nome; }
     public String[] getFraqueza(){ return fraqueza; }
+    public RepositorioMagiaArray getPoderes(){ return poderes; }
+    public RepositorioEquipamentoArray getLoot(){ return loot; }
 
+    /*
+    Métodos que modificam atributos
+    */
     public void setNome(String nome) { this.nome = nome; }
     public void setVida(int vida) { this.vida = vida; }
     public void setMp(int mp) { this.mp = mp; }
@@ -111,6 +119,7 @@ public abstract class Personagem {
     public void setDefesa(int defesa) { this.defesa = defesa; }
     public void setMovimentos(int movimentos) { this.movimentos = movimentos; }
     public void setNivel(int nivel){ this.nivel = nivel; }
-    public void setPoderes (Magia poderes) { this.poderes = poderes; }
+    public void setPoderes (RepositorioMagiaArray poderes) { this.poderes = poderes; }
     public void setFraqueza(String[] fraqueza) { this.fraqueza = fraqueza; }
+    public void setLoot(RepositorioEquipamentoArray loot){ this.loot = loot; }
 }
