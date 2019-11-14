@@ -73,3 +73,4 @@
 - [ ] Interface de Usuário
 
 ### Comentado
+:white_check_mark:	:white_check_mark:	:white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square:
