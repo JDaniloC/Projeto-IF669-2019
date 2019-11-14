@@ -27,8 +27,8 @@ public class FachadaEquipamento {
             throw new EquipamentoNaoEncontradoException();
         }
     }
-    public boolean existe(String codigo) {
-        return repEquipamento.existe(codigo);
+    public boolean existe(String nome) {
+        return repEquipamento.existe(nome);
     }
 
     public void atualizar(Equipamento equipamento)   {
@@ -47,3 +47,4 @@ public class FachadaEquipamento {
         }
     }
 }
+

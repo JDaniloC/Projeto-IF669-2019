@@ -5,6 +5,7 @@ import ClassesBasicas.Equipamento;
 import ClassesBasicas.Heroi;
 import ClassesBasicas.Magia;
 import ClassesBasicas.Personagem;
+import ClassesFachadaIndividual.FachadaEquipamento;
 import Repositorios.*;
 import Excecoes.*;
 
@@ -98,5 +99,21 @@ public class FachadaGeral{
         }
         else
             throw new CidadeInvalidaException();
+    }
+
+    public void cadastrarEquipamento(Equipamento equipamento) throws EquipamentoNaoEncontradoException, EquipamentoJaCadastradoException  {
+        fachadadaEquipamento.inserir(equipamento);
+    }
+    public void removerEquipamento(String nome) {
+         fachadaEquipamento.remover(nome);
+    }
+    public boolean existe(String nome) {
+        fachadaEquipamento.existe(nome);
+    }
+    public void atualizar(Equipamento equipamento) {
+        fachadaEquipamento.atualizar(equipamento);
+    }
+    public Equipamento procurar(String nome)   {
+        fachadaEquipamento.procurar(nome);
     }
 }
