@@ -1,8 +1,8 @@
 package FachadasNegocio;
 import Repositorios.RepositorioMagia;
 import ClassesBasicas.Magia;
-import Excecoes.MagiaJaExisteException;
-import Excecoes.MagiaNaoEncontradoException;
+import Excecoes.*;
+
 
 public class FachadaMagia {
 	private RepositorioMagia repositorio;

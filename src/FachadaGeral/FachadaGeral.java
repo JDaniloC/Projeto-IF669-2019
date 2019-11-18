@@ -12,13 +12,15 @@ import Excecoes.*;
 public class FachadaGeral{
     private FachadaPersonagem fachadaPersonagem;
     private FachadaCidade fachadaCidade;
+    private FachadaMagia fachadaMagia;
 
-    public FachadaGeral(FachadaPersonagem person, FachadaCidade cidade){
+    public FachadaGeral(FachadaPersonagem person, FachadaCidade cidade, FachadaMagia magia){
         /*
         Construtor da classe, recebendo todas as fachadas.
         */
         fachadaPersonagem = person;
         fachadaCidade = cidade;
+        fachadaMagia = magia;
     }
     
     public void adicionarPersonagem(Personagem novo) throws PersonagemJaExisteException, EquipamentoNaoEncontradoException, MagiaNaoEncontradoException, EntradaInvalidaException{ fachadaPersonagem.inserir(novo); }
@@ -102,4 +104,10 @@ public class FachadaGeral{
         else
             throw new CidadeInvalidaException();
     }
+    
+    public void  adicionarMagia(String nome) {
+    	
+    }
+    
+    
 }
