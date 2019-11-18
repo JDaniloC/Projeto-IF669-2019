@@ -5,6 +5,8 @@ import ClassesBasicas.Personagem;
 import Excecoes.EntradaInvalidaException;
 import Excecoes.PersonagemJaExisteException;
 import Excecoes.PersonagemNaoExisteException;
+import Repositorios.RepositorioEquipamento;
+import Repositorios.RepositorioMagia;
 import Repositorios.RepositorioPersonagem;
 
 public class FachadaPersonagem{

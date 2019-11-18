@@ -2,6 +2,11 @@ package FachadasNegocio;
 
 import Repositorios;
 import ClassesBasicas.Cidade;
+import Excecoes.CidadeJaExisteException;
+import Excecoes.CidadeNaoExisteException;
+import Repositorios.RepositorioCidade;
+import Repositorios.RepositorioCidadeArray;
+import Repositorios.RepositorioCidadeLista;
 
 public class FachadaCidade{
     private RepositorioCidade repositorioCidade;

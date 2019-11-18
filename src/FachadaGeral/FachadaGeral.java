@@ -1,6 +1,7 @@
 package FachadaGeral;
 
 import FachadasNegocio.*;
+import ClassesBasicas.Cidade;
 import ClassesBasicas.Equipamento;
 import ClassesBasicas.Heroi;
 import ClassesBasicas.Magia;
@@ -20,15 +21,15 @@ public class FachadaGeral{
         fachadaCidade = cidade;
     }
     
-    public void adicionarPersonagem(Personagem novo) throws PersonagemJaExisteException, EquipamentoNaoEncontradoException, MagiaNaoEncontradaException, EntradaInvalidaException{ fachadaPersonagem.inserir(novo); }
-    public void atualizarPersonagem(Personagem novo) throws PersonagemJaExisteException, EquipamentoNaoEncontradoException, MagiaNaoEncontradaException, EntradaInvalidaException{ fachadaPersonagem.atualizar(novo); }
+    public void adicionarPersonagem(Personagem novo) throws PersonagemJaExisteException, EquipamentoNaoEncontradoException, MagiaNaoEncontradoException, EntradaInvalidaException{ fachadaPersonagem.inserir(novo); }
+    public void atualizarPersonagem(Personagem novo) throws PersonagemJaExisteException, EquipamentoNaoEncontradoException, MagiaNaoEncontradoException, EntradaInvalidaException, PersonagemNaoExisteException{ fachadaPersonagem.atualizar(novo); }
     public void removerPersonagem(String nome) throws PersonagemNaoExisteException{ fachadaPersonagem.remover(nome); }
     public Personagem procurarPersonagem(String nome) throws PersonagemNaoExisteException{ return fachadaPersonagem.procurar(nome); }
 
-    public void UpPersonagem(String nome) throws PersonagemNaoExisteException{ fachadaPersonagem.Up(); }
-    public void mataPersonagem(String nome) throws PersonagemNaoExisteException{ fachadaPersonagem.Morre(); }
-    public void reestruturaPersonagem(String nome) throws PersonagemNaoExisteException{ fachadaPersonagem.reestrutura(); }
-    public void normalizarPersonagem(String nome, String escolha) throws PersonagemNaoExisteException, EntradaInvalidaException{ fachadaPersonagem.normalizarPersonagem(nome, escolha); }
+    public void UpPersonagem(String nome) throws PersonagemNaoExisteException{ fachadaPersonagem.Up(nome); }
+    public void mataPersonagem(String nome) throws PersonagemNaoExisteException{ fachadaPersonagem.Morre(nome); }
+    public void reestruturaPersonagem(String nome) throws PersonagemNaoExisteException{ fachadaPersonagem.reestrutura(nome); }
+    public void normalizarPersonagem(String nome, String escolha) throws PersonagemNaoExisteException, EntradaInvalidaException{ fachadaPersonagem.normalizar(nome, escolha); }
     public void upgradePersonagem(String nome, String escolha, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{ fachadaPersonagem.upgrade(nome, escolha, quant); }
     public void plusPersonagem(String nome, String escolha, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{ fachadaPersonagem.plus(nome, escolha, quant); }
     public void danoPersonagem(String nome, String escolha, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{ fachadaPersonagem.dano(nome, escolha, quant); }
@@ -50,7 +51,7 @@ public class FachadaGeral{
         {
             if (!fachadaCidade.existe(cidade.getCidade()))
             {
-                if (cidade.populcao>0)
+                if (cidade.getPopulacao()>0)
                 {
                     if (cidade.getVendedor() != null)
                     {
@@ -88,7 +89,7 @@ public class FachadaGeral{
             throw new CidadeInvalidaException();
     }
 
-    public Local procurarLocal(String nome) throws CidadeInvalidaException, CidadeNaoExisteException {
+    public Cidade procurarLocal(String nome) throws CidadeInvalidaException, CidadeNaoExisteException {
         if (nome != null)
         {
             if (fachadaCidade.existe(nome))
