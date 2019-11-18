@@ -7,10 +7,16 @@ public class RepositorioPersonagemLista implements RepositorioPersonagem{
     private RepositorioPersonagemLista next;
 
     public RepositorioPersonagemLista(){
+        /*
+        Construtor da classe, deixando os atributos null.
+        */
         person = null;
         next = null;
     }
     public void inserir(Personagem person){
+        /*
+        Adiciona um novo personagem, criando um novo ponteiro se necessário.
+        */
         if (person == null){
             this.person = person;
         } else{
@@ -21,6 +27,9 @@ public class RepositorioPersonagemLista implements RepositorioPersonagem{
         }
     }
     public void atualizar(Personagem person) throws PersonagemNaoExisteException{
+        /*
+        Atualiza um personagem já existente percorrendo cada ponteiro recursivamente.
+        */
         if (this.person != null && person.getNome().equals(this.person.getNome())){
             this.person = person;
         } else{
@@ -32,6 +41,9 @@ public class RepositorioPersonagemLista implements RepositorioPersonagem{
         }
     }
     public void remover(String nome) throws PersonagemNaoExisteException{
+        /*
+        Remove um personagem recurisvamente procurando ele e recebendo os atributos do próximo (se ele existir).
+        */
         if (person != null && person.getNome().equals(nome)){
             if (next != null){
                 person = next.person;
@@ -46,6 +58,9 @@ public class RepositorioPersonagemLista implements RepositorioPersonagem{
         }
     }
     public Personagem procurar(String nome) throws PersonagemNaoExisteException{
+        /*
+        Devolve um personagem de forma recursiva.
+        */
         if (person != null && person.getNome().equals(nome)){
             return person;
         } else if (next != null){
@@ -55,6 +70,9 @@ public class RepositorioPersonagemLista implements RepositorioPersonagem{
         }
     }
     public boolean existe(String nome){
+        /*
+        Procura um personagem recursivamente, e devolve true se encontrou, false caso contrário.
+        */
         if (person != null && person.getNome().equals(nome)){
             return true;
         } else if (next != null){

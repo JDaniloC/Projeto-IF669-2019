@@ -25,7 +25,7 @@
     - [x] [Interface](./src/Repositorios/RepositorioPersonagem.java)
         - [x] [Array](./src/Repositorios/RepositorioPersonagemArray.java)
         - [x] [Lista](./src/Repositorios/RepositorioPersonagemLista.java)
- - [ ] de Equipamentos
+ - [x] de Equipamentos
     - [x] [Interface](./src/Repositorios/RepositorioEquipamento.java)
         - [x] [Array](./src/Repositorios/RepositorioEquipamentoArray.java)
         - [x] [Lista](./src/Repositorios/RepositorioEquipamentoLista.java)
@@ -33,22 +33,29 @@
     - [x] [Interface](./src/Repositorios/RepositorioMagia.java)
         - [x] [Array](./src/Repositorios/RepositorioMagiaArray.java)
         - [x] [Lista](./src/Repositorios/RepositorioMagiaLista.java)
- - [ ] de Cidades
+ - [x] de Cidades
     - [x] [Interface](./src/Repositorios/RepositorioCidade.java)
         - [x] [Array](./src/Repositorios/RepositorioCidadeArray.java)
         - [x] [Lista](./src/Repositorios/RepositorioCidadeLista.java)
 
 ### Excecoes:
 - [x] Personagem
-    - [x] [Nao existe](./src/Excecoes/PersonagemJaExisteException.java)
-    - [x] [Ja existe](./src/Excecoes/PersonagemNaoExisteException.java)
-- [ ] Equipamento
-    - [ ] [Ja cadastrado](./src/Excecoes/EquipamentoJaCadastradoException.java)
-    - [ ] [Nao encontrado](./src/Excecoes/EquipamentoNaoEncontradoException.java)
+    - [x] [Não existe](./src/Excecoes/PersonagemJaExisteException.java)
+    - [x] [Já existe](./src/Excecoes/PersonagemNaoExisteException.Jáva)
+    - [x] [Entrada Inválida](./src/Excecoes/EntradaInvalidaException.java)
+- [x] Equipamento
+    - [x] [Já cadastrado](./src/Excecoes/EquipamentoJaCadastradoException.java)
+    - [x] [Não encontrado](./src/Excecoes/EquipamentoNaoEncontradoException.java)
+    - [x] [Inventário Cheio](./src/Excecoes/InventarioCheioException.java)
 - [x] Magia
-    - [x] Ja existe
-    - [x] Nao encontrada
-- [ ] Cidade
+    - [x] [Já existe](./src/Excecoes/MagiaJaExisteException.java)
+    - [x] [Não encontrada](./src/Excecoes/MagiaNaoEncontradoException.java)
+- [x] Cidade
+    - [x] [Já existe](./src/Excecoes/CidadeJaExisteException.java)
+    - [x] [Não Existe](./src/Excecoes/CidadeNaoExisteException.java)
+    - [x] [Cidade Inválida](./src/Excecoes/CidadeInvalidaException.java)
+    - [x] [Missão Inválida](./src/Excecoes/MissaoInvalidaException.java)
+    - [x] [População Inválida](./src/Excecoes/PopulacaoInvalidaException.java)
 
 ### Classe abstrata:
 - [x] [Personagem](./src/ClassesBasicas/Personagem.java)
@@ -57,9 +64,13 @@
 
 ### Fachada de Negócio
 - [x] [Personagem](./src/FachadasNegocio/FachadaPersonagem.java)
-- [ ] [Equipamento](./src/FachadasNegocio/FachadaEquipamento.java)
-- [ ] Cidade
-- [ ] Magia
+- [x] [Equipamento](./src/FachadasNegocio/FachadaEquipamento.java)
+- [x] [Cidade](./src/FachadasNegocio/FachadaCidade.java)
+- [x] [Magia](./src/FachadasNegocio/FachadaMagia.java)
 
-### Fachada Geral
-- [ ] [Feita](./src/FachadaGeral/FachadaGeral.java)
+### Fachada Geral e Interface de Usuário
+- [ ] [Fachada Geral](./src/FachadaGeral/FachadaGeral.java)
+- [ ] Interface de Usuário
+
+### Comentado
+:white_check_mark:	:white_check_mark:	:white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square:
