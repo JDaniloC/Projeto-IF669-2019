@@ -27,8 +27,8 @@ public class FachadaEquipamento {
             throw new EquipamentoNaoEncontradoException();
         }
     }
-    public boolean existe(String codigo) {
-        return repEquipamento.existe(codigo);
+    public boolean existe(String nome) {
+        return repEquipamento.existe(nome);
     }
 
     public void atualizar(Equipamento equipamento) throws EquipamentoNaoEncontradoException {
@@ -46,7 +46,6 @@ public class FachadaEquipamento {
         	throw new EquipamentoNaoEncontradoException();
         }
     }
-
     public int getVidaPlus(String nome) throws EquipamentoNaoEncontradoException{
         Equipamento equip = procurar(nome);
         return equip.getVidaPlus(); 

@@ -108,10 +108,21 @@ public class FachadaGeral{
         else
             throw new CidadeInvalidaException();
     }
-    
+
     public void  adicionarMagia(String nome) {
     	
     }
-    
-    
+
+    public void cadastrarEquipamento(Equipamento equipamento) throws EquipamentoNaoEncontradoException, EquipamentoJaCadastradoException  {
+        fachadadaEquipamento.inserir(equipamento);
+    }
+    public void removerEquipamento(String nome) {
+         fachadaEquipamento.remover(nome);
+    }
+    public void atualizarEquipamento(Equipamento equipamento) {
+        fachadaEquipamento.atualizar(equipamento);
+    }
+    public Equipamento procurarEquipamento(String nome)   {
+        fachadaEquipamento.procurar(nome);
+    }
 }

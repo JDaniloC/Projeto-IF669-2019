@@ -28,8 +28,6 @@ public class InterfaceUsuario {
             programa.atualizarEquipamento(equipamento02);
         } catch (Exception e) {
             System.out.println(e.getMessage());
-    }
-        try {
-            equipamento.remover("NokiaTijolao");
         }
+    }
 }
