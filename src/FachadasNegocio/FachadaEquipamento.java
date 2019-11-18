@@ -12,7 +12,7 @@ public class FachadaEquipamento {
     public FachadaEquipamento(RepositorioEquipamento rep){
         repEquipamento = rep;
     }
-	public void cadastrar(Equipamento equipamento) {
+	public void cadastrar(Equipamento equipamento) throws EquipamentoJaCadastradoException {
 		if (!this.repEquipamento.existe(equipamento.getNome())) {
 			repEquipamento.inserir(equipamento);
 		} else {
@@ -31,7 +31,7 @@ public class FachadaEquipamento {
         return repEquipamento.existe(codigo);
     }
 
-    public void atualizar(Equipamento equipamento)   {
+    public void atualizar(Equipamento equipamento) throws EquipamentoNaoEncontradoException {
         if (this.existe(equipamento.getNome())) {
         	repEquipamento.atualizar(equipamento);
         } else {
@@ -39,11 +39,36 @@ public class FachadaEquipamento {
         }
     }
 
-    public Equipamento procurar(String nome)   {
+    public Equipamento procurar(String nome) throws EquipamentoNaoEncontradoException {
         if (this.existe(nome)) {
             return this.repEquipamento.procurar(nome);
         } else {
         	throw new EquipamentoNaoEncontradoException();
         }
+    }
+
+    public int getVidaPlus(String nome) throws EquipamentoNaoEncontradoException{
+        Equipamento equip = procurar(nome);
+        return equip.getVidaPlus(); 
+    }
+    public String[] getAtributosEsp(String nome) throws EquipamentoNaoEncontradoException {
+        Equipamento equip = procurar(nome); 
+        return equip.getAtributosEsp(); 
+    }
+    public int getAtaque(String nome) throws EquipamentoNaoEncontradoException{
+        Equipamento equip = procurar(nome);
+        return equip.getAtaque(); 
+    }
+    public int getDefesa(String nome) throws EquipamentoNaoEncontradoException {
+        Equipamento equip = procurar(nome); 
+        return equip.getDefesa(); 
+    }
+    public int getPreco(String nome) throws EquipamentoNaoEncontradoException {
+        Equipamento equip = procurar(nome); 
+        return equip.getPreco(); 
+    }
+    public String getNome(String nome) throws EquipamentoNaoEncontradoException{
+        Equipamento equip = procurar(nome);
+        return equip.getNome(); 
     }
 }

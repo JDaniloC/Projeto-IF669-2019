@@ -5,18 +5,22 @@ import ClassesBasicas.Equipamento;
 import ClassesBasicas.Heroi;
 import ClassesBasicas.Magia;
 import ClassesBasicas.Personagem;
+import ClassesFachadaIndividual.FachadaEquipamento;
 import Repositorios.*;
 import Excecoes.*;
 
 public class FachadaGeral{
     private FachadaPersonagem fachadaPersonagem;
     private FachadaCidade fachadaCidade;
+    private FachadaEquipamento fachadaEquipamento;
 
-    public FachadaGeral(FachadaPersonagem person, FachadaCidade cidade){
+    public FachadaGeral(FachadaPersonagem person, FachadaEquipamento equips, 
+    FachadaCidade cidade){
         /*
         Construtor da classe, recebendo todas as fachadas.
         */
         fachadaPersonagem = person;
+        fachadaEquipamento = equips;
         fachadaCidade = cidade;
     }
     
