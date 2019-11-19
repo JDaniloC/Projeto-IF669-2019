@@ -1,8 +1,9 @@
-package ClassesFachadaIndividual;
+package FachadasNegocio;
 
 import ClassesBasicas.Equipamento;
 import Excecoes.EquipamentoJaCadastradoException;
 import Excecoes.EquipamentoNaoEncontradoException;
+import Excecoes.InventarioCheioException;
 import Repositorios.RepositorioEquipamento;
 
 public class FachadaEquipamento {
@@ -12,7 +13,7 @@ public class FachadaEquipamento {
     public FachadaEquipamento(RepositorioEquipamento rep){
         repEquipamento = rep;
     }
-	public void cadastrar(Equipamento equipamento) throws EquipamentoJaCadastradoException {
+	public void cadastrar(Equipamento equipamento) throws EquipamentoJaCadastradoException, InventarioCheioException {
 		if (!this.repEquipamento.existe(equipamento.getNome())) {
 			repEquipamento.inserir(equipamento);
 		} else {
