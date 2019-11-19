@@ -4,6 +4,6 @@ package Excecoes;
 
 public class PopulacaoInvalidaException extends Exception{
     public PopulacaoInvalidaException(){
-        super("Valor para população inválido!")
+        super("Valor para população invalido!");
     }
 }
