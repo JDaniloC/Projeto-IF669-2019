@@ -1,13 +1,12 @@
 package FachadasNegocio;
 
+import ClassesBasicas.Equipamento;
 import ClassesBasicas.Magia;
 import ClassesBasicas.Personagem;
 import Excecoes.EntradaInvalidaException;
 import Excecoes.PersonagemJaExisteException;
 import Excecoes.PersonagemNaoExisteException;
-import Repositorios.RepositorioEquipamento;
-import Repositorios.RepositorioMagia;
-import Repositorios.RepositorioPersonagem;
+import Repositorios.*;
 
 public class FachadaPersonagem{
     RepositorioPersonagem repositorio;
@@ -207,13 +206,17 @@ public class FachadaPersonagem{
         Personagem person = procurar(nome);
         return person.getNome(); 
     }
-    public RepositorioEquipamento getLoot(String nome) throws PersonagemNaoExisteException{
+    public Equipamento getLoot(String nome) throws PersonagemNaoExisteException{
         Personagem person = procurar(nome);
         return person.getLoot();
     }
-    public RepositorioMagia getMagia(String nome) throws PersonagemNaoExisteException{
+    public Magia getMagia(String nome) throws PersonagemNaoExisteException{
         Personagem person = procurar(nome);
         return person.getPoderes();
+    }
+    public String[] getInformacoes(String nome) throws PersonagemNaoExisteException{
+        Personagem person = procurar(nome);
+        return person.getInformacoes();
     }
 
     /*
@@ -248,13 +251,13 @@ public class FachadaPersonagem{
     public void setNivel(String nome, int nivel) throws PersonagemNaoExisteException{ 
         procurar(nome).setNivel(nivel); 
     }
-    public void setPoderes (String nome, RepositorioMagia poderes) throws PersonagemNaoExisteException{ 
+    public void setPoderes (String nome, Magia poderes) throws PersonagemNaoExisteException{
         procurar(nome).setPoderes(poderes); 
     }
     public void setFraqueza(String nome, String[] fraqueza) throws PersonagemNaoExisteException{ 
         procurar(nome).setFraqueza(fraqueza); 
     }
-    public void setLoot(String nome, RepositorioEquipamento loot) throws PersonagemNaoExisteException{
+    public void setLoot(String nome, Equipamento loot) throws PersonagemNaoExisteException{
         procurar(nome).setLoot(loot);
     }
 }

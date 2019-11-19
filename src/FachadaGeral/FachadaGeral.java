@@ -27,8 +27,16 @@ public class FachadaGeral{
         fachadaMagia = magia;
     }
     
-    public void adicionarPersonagem(Personagem novo) throws PersonagemJaExisteException, EquipamentoNaoEncontradoException, MagiaNaoEncontradoException, EntradaInvalidaException{ fachadaPersonagem.inserir(novo); }
-    public void atualizarPersonagem(Personagem novo) throws PersonagemJaExisteException, EquipamentoNaoEncontradoException, MagiaNaoEncontradoException, EntradaInvalidaException, PersonagemNaoExisteException{ fachadaPersonagem.atualizar(novo); }
+    public void adicionarPersonagem(Personagem novo) throws PersonagemJaExisteException, EquipamentoNaoEncontradoException, MagiaNaoEncontradoException{
+        procurarMagia(novo.getPoderes().getNome());
+        procurarEquipamento(novo.getLoot().getNome());
+        fachadaPersonagem.inserir(novo);
+    }
+    public void atualizarPersonagem(Personagem novo) throws EquipamentoNaoEncontradoException, MagiaNaoEncontradoException, PersonagemNaoExisteException{ 
+        procurarEquipamento(novo.getLoot().getNome());
+        procurarMagia(novo.getPoderes().getNome());
+        fachadaPersonagem.atualizar(novo); 
+    }
     public void removerPersonagem(String nome) throws PersonagemNaoExisteException{ fachadaPersonagem.remover(nome); }
     public Personagem procurarPersonagem(String nome) throws PersonagemNaoExisteException{ return fachadaPersonagem.procurar(nome); }
 

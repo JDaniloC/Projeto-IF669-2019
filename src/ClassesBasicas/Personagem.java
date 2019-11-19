@@ -1,5 +1,7 @@
 package ClassesBasicas;
 import ClassesBasicas.Equipamento;
+import Repositorios.RepositorioEquipamentoArray;
+import Repositorios.RepositorioMagiaArray;
 
 public abstract class Personagem {
     private String[] informacoes;
@@ -11,8 +13,8 @@ public abstract class Personagem {
     private int movimentos;
     private int nivel;
     private String[] fraqueza;
-    private RepositorioMagiaArray poderes;
-    private RepositorioEquipamentoArray loot;
+    private Magia poderes;
+    private Equipamento loot;
 
     /*
     Metodos abstratos, devido a diferença de reações.
@@ -106,8 +108,9 @@ public abstract class Personagem {
     public int getNivel() { return nivel; }
     public String getNome(){ return nome; }
     public String[] getFraqueza(){ return fraqueza; }
-    public RepositorioMagiaArray getPoderes(){ return poderes; }
-    public RepositorioEquipamentoArray getLoot(){ return loot; }
+    public Magia getPoderes(){ return poderes; }
+    public Equipamento getLoot(){ return loot; }
+    public String[] getInformacoes(){ return informacoes; }
 
     /*
     Métodos que modificam atributos
@@ -119,7 +122,7 @@ public abstract class Personagem {
     public void setDefesa(int defesa) { this.defesa = defesa; }
     public void setMovimentos(int movimentos) { this.movimentos = movimentos; }
     public void setNivel(int nivel){ this.nivel = nivel; }
-    public void setPoderes (RepositorioMagiaArray poderes) { this.poderes = poderes; }
+    public void setPoderes (Magia poderes) { this.poderes = poderes; }
     public void setFraqueza(String[] fraqueza) { this.fraqueza = fraqueza; }
-    public void setLoot(RepositorioEquipamentoArray loot){ this.loot = loot; }
+    public void setLoot(Equipamento loot){ this.loot = loot; }
 }

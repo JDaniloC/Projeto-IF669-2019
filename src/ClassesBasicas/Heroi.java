@@ -1,4 +1,6 @@
 package ClassesBasicas;
+import Repositorios.RepositorioEquipamentoArray;
+import Repositorios.RepositorioMagiaArray;
 
 public class Heroi extends Personagem{
     private String[] informacoes;
@@ -10,10 +12,10 @@ public class Heroi extends Personagem{
     private int movimentos;
     private int nivel;
     private String[] fraqueza;
-    private RepositorioMagiaArray poderes;
-    private RepositorioEquipamentoArray loot;
+    private Magia poderes;
+    private Equipamento loot;
 
-    public Heroi (String nome, int vida, int mp, int ataque, int defesa, int movimentos, int nivel, String[] fraqueza, RepositorioMagiaArray poder, RepositorioEquipamentoArray loot){
+    public Heroi (String nome, int vida, int mp, int ataque, int defesa, int movimentos, int nivel, String[] fraqueza, Magia poder, Equipamento loot){
         /*
         Construtor da classe.
         */
@@ -31,7 +33,7 @@ public class Heroi extends Personagem{
                 Integer.toString(defesa), Integer.toString(movimentos)};
     }
 
-    public RepositorioEquipamentoArray morre() {
+    public Equipamento morre() {
         /*
         Ao morrer ele não devolve nada.
         */
@@ -92,10 +94,12 @@ public class Heroi extends Personagem{
     public int getAtaque() { return ataque; }
     public int getDefesa() { return defesa; }
     public int getMovimentos() { return movimentos; }
+    public int getNivel(){ return nivel; }
     public String getNome() { return nome; }
     public String[] getFraqueza(){ return fraqueza; }
-    public RepositorioMagiaArray getPoderes(){ return poderes; }
-    public RepositorioEquipamentoArray getLoot(){ return loot; }
+    public Magia getPoderes(){ return poderes; }
+    public Equipamento getLoot(){ return loot; }
+    public String[] getInformacoes(){ return informacoes; }
 
     /*
     Métodos que modificam atributos
@@ -107,8 +111,8 @@ public class Heroi extends Personagem{
     public void setDefesa(int defesa) { super.setDefesa(defesa); }
     public void setMovimentos(int movimentos) { super.setMovimentos(movimentos); }
     public void setNivel(int nivel){ super.setNivel(nivel); }
-    public void setPoderes (RepositorioMagiaArray poderes) { super.setPoderes(poderes); }
+    public void setPoderes (Magia poderes) { super.setPoderes(poderes); }
     public void setFraqueza(String[] fraqueza) { super.setFraqueza(fraqueza); }
-    public void setLoot(RepositorioEquipamentoArray loot){ super.setLoot(loot); }
+    public void setLoot(Equipamento loot){ super.setLoot(loot); }
 
 }
