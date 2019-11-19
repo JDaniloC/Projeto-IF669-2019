@@ -117,12 +117,8 @@ public class FachadaGeral{
             throw new CidadeInvalidaException();
     }
 
-    public void  adicionarMagia(String nome) {
-    	
-    }
-
     public void cadastrarEquipamento(Equipamento equipamento) throws EquipamentoJaCadastradoException  {
-    	fachadaEquipamento.inserir(equipamento);
+    	fachadaEquipamento.cadastrar(equipamento);
     }
     public void removerEquipamento(String nome) throws EquipamentoNaoEncontradoException {
         fachadaEquipamento.remover(nome);
@@ -130,8 +126,8 @@ public class FachadaGeral{
     public void atualizarEquipamento(Equipamento equipamento) throws EquipamentoNaoEncontradoException{
         fachadaEquipamento.atualizar(equipamento);
     }
-    public void procurarEquipamento(String nome) throws EquipamentoNaoEncontradoException{
-        fachadaEquipamento.procurar(nome);
+    public Equipamento procurarEquipamento(String nome) throws EquipamentoNaoEncontradoException{
+        return fachadaEquipamento.procurar(nome);
     }
     
     public void cadastrarMagia(Magia magia) throws MagiaJaExisteException {

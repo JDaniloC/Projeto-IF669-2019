@@ -12,14 +12,8 @@ public class FachadaCidade{
     private RepositorioCidade repositorioCidade;
 
     // Verificação para definir o tipo de repositório a ser usado
-    public FachadaCidade(String tipo) throws TipoDeRepositorioInvalidoException {
-        if(tipo.equals("array")) {
-            repositorioCidade = new RepositorioCidadeArray();
-        }else if(tipo.equals("lista")){
-            repositorioCidade = new RepositorioCidadeLista();
-        }else{
-            throw TipoDeRepositorioInvalidoException();
-        }
+    public FachadaCidade(RepositorioCidade cidade) {
+        repositorioCidade = cidade;
     }
 
     // Verificação de existência da cidade
@@ -47,7 +41,7 @@ public class FachadaCidade{
         if(existe(nome)){
             repositorioCidade.remover(nome);
         }else{
-            throw new CidadeNaoExisteException()
+            throw new CidadeNaoExisteException();
         }
     }
 
