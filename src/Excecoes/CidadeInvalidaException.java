@@ -4,6 +4,6 @@ package Excecoes;
 
 public class CidadeInvalidaException extends Exception{
     public CidadeInvalidaException(){
-        super("Entrada de cidade inválida!")
+        super("Entrada de cidade inválida!");
     }
 }

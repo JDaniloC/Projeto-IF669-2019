@@ -41,7 +41,7 @@ public class RepositorioCidadeArray implements RepositorioCidade {
         }
 
         // Remove uma cidade do array
-    public void remove(String nome){
+    public void remover(String nome){
         for(int i = 0; i < this.cidadeArray.length; i++){
             if (nome.equals(cidadeArray[i].getCidade())) {
                 cidadeArray[i] = cidadeArray[cidadeArray.length - 1];

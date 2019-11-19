@@ -4,6 +4,6 @@ package Excecoes;
 
 public class CidadeNaoExisteException extends Exception{
     public CidadeNaoExisteException(){
-        super("Cidade nao existe!")
+        super("Cidade nao existe!");
     }
 }
