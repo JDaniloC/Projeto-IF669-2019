@@ -32,7 +32,7 @@ public class RepositorioEquipamentoLista implements RepositorioEquipamento {
 		if (!existe(nome)) {
 			throw new EquipamentoNaoEncontradoException();
 		}
-		else if (this.equipamento != null && this.equipamento.getNome() == nome) {
+		else if (this.equipamento != null && this.equipamento.getNome().equals(nome)) {
 			 if (this.proximo != null) {
 				this.equipamento = this.proximo.equipamento;
 				this.proximo = this.proximo.proximo;
@@ -46,7 +46,7 @@ public class RepositorioEquipamentoLista implements RepositorioEquipamento {
 	public void atualizar(Equipamento equipamento) throws EquipamentoNaoEncontradoException {
 		if (this.equipamento == null) {
 			throw new EquipamentoNaoEncontradoException();
-		} else if (this.equipamento.getNome() == equipamento.getNome()) {
+		} else if (this.equipamento.getNome().equals(equipamento.getNome())) {
 			this.equipamento = equipamento;
 		} else {
 			this.proximo.atualizar(equipamento);
@@ -64,10 +64,12 @@ public class RepositorioEquipamentoLista implements RepositorioEquipamento {
 	}
 	@Override
 	public boolean existe(String nome) {
-		if (this.equipamento.equals(null)) {
-			return false;
-		} else {
+		if (this.equipamento.getNome().equals(nome)) {
 			return true;
+		} else if (this.proximo != null){
+			return this.proximo.existe(nome);
+		} else{
+			return false;
 		}
 	}
 }

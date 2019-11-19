@@ -7,21 +7,17 @@ import ClassesBasicas.Monstro;
 // Definição e criação do repositório de Cidade com lista
 public class RepositorioCidadeLista implements RepositorioCidade{
     private Cidade cidade;
-    private repositorioCidadeLista prox;
+    private RepositorioCidadeLista prox;
 
-    public repositorioCidadeLista(){
+    public RepositorioCidadeLista(){
         this.cidade = null;
         this.prox = null;
     }
 
     // Insere uma cidade na lista
     public void inserir(Cidade cidade){
-        if(this.cidade==null){
-            this.cidade.setCidade(cidade.getCidade());
-            this.cidade.setPopulacao(cidade.getPopulacao());
-            this.cidade.vendedor = cidade.vendedor;
-            this.cidade.setMissao(cidade.getMissao());
-            this.cidade.setMonstro(cidade.getMonstro());
+        if(this.cidade == null){
+            this.cidade = cidade;
             this.prox = new RepositorioCidadeLista();
         }else this.prox.inserir(cidade);
     }
@@ -38,10 +34,10 @@ public class RepositorioCidadeLista implements RepositorioCidade{
     }
 
     // Remove uma cidade da lista
-    public void remover (Cidade cidade){
+    public void remover (String nome){
         if(this.cidade==null) //cidade não existe para remover
             return;
-        if(this.cidade.getCidade().equals(cidade.getCidade())){
+        if(this.cidade.getCidade().equals(nome)){
             this.cidade.setCidade(this.prox.cidade.getCidade());
             this.cidade.setPopulacao(this.prox.cidade.getPopulacao());
             this.cidade.setVendedor(this.prox.cidade.getVendedor());
@@ -52,7 +48,7 @@ public class RepositorioCidadeLista implements RepositorioCidade{
 
     // Procura uma cidade na lista
     public Cidade procurar(String nome){
-        if(nome.equals(cidade.getCidade())||nome.equals(cidade.getMissao())||nome.equals(cidade.getMonstro())){
+        if(nome.equals(cidade.getCidade())||nome.equals(cidade.getMissao())||nome.equals(cidade.getMonstro().getNome())){
             return this.cidade;
         }else this.prox.procurar(nome);
         return null;
