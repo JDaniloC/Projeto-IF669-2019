@@ -125,4 +125,24 @@ public class FachadaGeral{
     public Equipamento procurarEquipamento(String nome)   {
         fachadaEquipamento.procurar(nome);
     }
+    
+    public void cadastrarMagia(Magia magia) throws MagiaJaExisteException {
+    	fachadaMagia.inserir(magia);
+    }
+    
+    public void atualizarMagia(Magia magia) throws MagiaNaoEncontradoException {
+    	fachadaMagia.atualizar(magia);
+    }
+    
+    public void removerMagia(String nome) throws MagiaNaoEncontradoException {
+    	fachadaMagia.remover(nome);
+    }
+    
+    public Magia procurarMagia(String nome) throws MagiaNaoEncontradoException {
+    	return fachadaMagia.procurar(nome);
+    }
+    
+    public boolean existeMagia(String nome) {
+    	return fachadaMagia.existe(nome);
+    }
 }
