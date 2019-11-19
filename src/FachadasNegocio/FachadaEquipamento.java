@@ -1,4 +1,4 @@
-package ClassesFachadaIndividual;
+package FachadasNegocio;
 
 import ClassesBasicas.Equipamento;
 import Excecoes.EquipamentoJaCadastradoException;
@@ -50,7 +50,7 @@ public class FachadaEquipamento {
         Equipamento equip = procurar(nome);
         return equip.getVidaPlus(); 
     }
-    public String[] getAtributosEsp(String nome) throws EquipamentoNaoEncontradoException {
+    public String getAtributosEsp(String nome) throws EquipamentoNaoEncontradoException {
         Equipamento equip = procurar(nome); 
         return equip.getAtributosEsp(); 
     }

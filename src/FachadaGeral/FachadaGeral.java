@@ -6,7 +6,7 @@ import ClassesBasicas.Equipamento;
 import ClassesBasicas.Heroi;
 import ClassesBasicas.Magia;
 import ClassesBasicas.Personagem;
-import ClassesFachadaIndividual.FachadaEquipamento;
+import FachadasNegocio.FachadaEquipamento;
 import Repositorios.*;
 import Excecoes.*;
 
@@ -113,16 +113,16 @@ public class FachadaGeral{
     	
     }
 
-    public void cadastrarEquipamento(Equipamento equipamento) throws EquipamentoNaoEncontradoException, EquipamentoJaCadastradoException  {
-        fachadadaEquipamento.inserir(equipamento);
+    public void cadastrarEquipamento(Equipamento equipamento) throws EquipamentoJaCadastradoException  {
+    	fachadaEquipamento.inserir(equipamento);
     }
-    public void removerEquipamento(String nome) {
-         fachadaEquipamento.remover(nome);
+    public void removerEquipamento(String nome) throws EquipamentoNaoEncontradoException {
+        fachadaEquipamento.remover(nome);
     }
-    public void atualizarEquipamento(Equipamento equipamento) {
+    public void atualizarEquipamento(Equipamento equipamento) throws EquipamentoNaoEncontradoException{
         fachadaEquipamento.atualizar(equipamento);
     }
-    public Equipamento procurarEquipamento(String nome)   {
+    public void procurarEquipamento(String nome) throws EquipamentoNaoEncontradoException{
         fachadaEquipamento.procurar(nome);
     }
     

@@ -2,7 +2,7 @@ import ClassesBasicas.*;
 import Excecoes.*;
 import Repositorios.*;
 import FachadaGeral.*;
-import ClassesFachadaIndividual.*;
+import FachadasNegocio.*;
 
 public class InterfaceUsuario {
 
@@ -24,8 +24,21 @@ public class InterfaceUsuario {
         try {
             Equipamento equipamento02 = new Equipamento("Gargantuilha", 350, 100, 0, 0, "Aumenta consideravelmente seu Ataque");
             programa.cadastrarEquipamento(equipamento02);
-            equipamento02.setAtaque(150);
+            equipamento02.setAtaque(250);
             programa.atualizarEquipamento(equipamento02);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+        try {
+            Equipamento equipamento03 = new Equipamento("ColarDeCaveira", 1000, 150, 200, 150, "Aumenta consideravelmente seu Ataque, Defesa e Vida");
+            programa.procurarEquipamento("ColarDeCaveira");
+            programa.cadastrarEquipamento(equipamento03);
+            programa.procurarEquipamento("ColarDeCaveira");
+            equipamento03.setAtaque(200);
+            programa.atualizarEquipamento(equipamento03);
+            programa.removerEquipamento("Gargantuilha");
+            programa.removerEquipamento("ColarDeCaveira");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

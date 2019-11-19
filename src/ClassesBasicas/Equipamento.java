@@ -6,7 +6,16 @@ public class Equipamento {
 	private int ataque;
 	private int defesa;
 	private int vidaPlus;
-	private String[] atributosEsp;
+	private String atributosEsp;
+
+	public Equipamento(String nome, int preco, int ataque, int defesa, int vidaPlus, String atributosEsp) {
+		this.nome = nome;
+		this.preco = preco;
+		this.ataque = ataque;
+		this.defesa = defesa;
+		this.vidaPlus = vidaPlus;
+		this.atributosEsp = atributosEsp;
+	}
 
 	public String getNome() {
 		return nome;
@@ -28,7 +37,7 @@ public class Equipamento {
 		return vidaPlus;
 	}
 
-	public String[] getAtributosEsp() {
+	public String getAtributosEsp() {
 		return atributosEsp;
 	}
 
@@ -53,7 +62,7 @@ public class Equipamento {
 		this.vidaPlus = vidaPlus;
 	}
 	
-	public void setAtributosEsp(String[] atributosEsp ) {
+	public void setAtributosEsp(String atributosEsp ) {
 		this.atributosEsp = atributosEsp;
 	}
 }

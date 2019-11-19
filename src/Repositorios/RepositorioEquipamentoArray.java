@@ -1,9 +1,10 @@
 package Repositorios;
 
+import java.util.Arrays;
+
 import ClassesBasicas.Equipamento;
 import Excecoes.EquipamentoJaCadastradoException;
 import Excecoes.EquipamentoNaoEncontradoException;
-import Excecoes.InventarioCheioException;
 
 public class RepositorioEquipamentoArray implements RepositorioEquipamento {
 	private Equipamento[] ListaEquipamento;
@@ -14,14 +15,16 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
 		this.posicao = 0;
 	}
 	
-	public void inserir(Equipamento equipamento) throws EquipamentoJaCadastradoException, InventarioCheioException {
+	public void inserir(Equipamento equipamento) throws EquipamentoJaCadastradoException {
 		if (existe(equipamento.getNome())) {
 			throw new EquipamentoJaCadastradoException();
 		} else if (this.posicao < ListaEquipamento.length) {
             this.ListaEquipamento[this.posicao] = equipamento;
             this.posicao = this.posicao + 1;
 		} else {
-			throw new InventarioCheioException();
+			Equipamento[] newlista = Arrays.copyOfRange(ListaEquipamento, 0, ListaEquipamento.length*2);
+			this.ListaEquipamento = newlista;
+			this.inserir(equipamento);
 		}
 	}
   
