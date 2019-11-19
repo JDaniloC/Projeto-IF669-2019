@@ -1,49 +1,58 @@
 package ClassesBasicas;
 
 public class Magia {
+	// Atributos da classe
 	private String nome;
 	private int dano;
 	private int gasto;
 	private int cura;
 	private String efeito;
 	private String tipo;
+	//Gets
 	public String getNome() {
 		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 	public int getDano() {
 		return dano;
 	}
-	public void setDano(int dano) {
-		this.dano = dano;
-	}
 	public int getGasto() {
 		return gasto;
-	}
-	public void setGasto(int gasto) {
-		this.gasto = gasto;
 	}
 	public int getCura() {
 		return cura;
 	}
-	public void setCura(int cura) {
-		this.cura = cura;
-	}
 	public String getEfeito() {
 		return efeito;
-	}
-	public void setEfeito(String efeito) {
-		this.efeito = efeito;
 	}
 	public String getTipo() {
 		return tipo;
 	}
+	
+	//Sets
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public void setDano(int dano) {
+		this.dano = dano;
+	}
+	
+	public void setGasto(int gasto) {
+		this.gasto = gasto;
+	}
+	
+	public void setCura(int cura) {
+		this.cura = cura;
+	}
+	
+	public void setEfeito(String efeito) {
+		this.efeito = efeito;
+	}
+	
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	
+	//Construtores 
 	public Magia() {
 		this.nome = null;
 		this.dano = 0;
