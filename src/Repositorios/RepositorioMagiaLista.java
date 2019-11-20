@@ -30,7 +30,7 @@ public class RepositorioMagiaLista implements RepositorioMagia {
 			this.magia = magia;
 		}
 		else if (this.proximo != null) {
-			this.atualizar(magia);
+			this.proximo.atualizar(magia);
 		}
 		else {
 			throw new MagiaNaoEncontradoException();
@@ -60,7 +60,7 @@ public class RepositorioMagiaLista implements RepositorioMagia {
 			magia = this.magia;
 		}
 		else if (this.proximo != null) {
-			magia = this.procurar(nome);
+			magia = this.proximo.procurar(nome);
 		}
 		else {
 			throw new MagiaNaoEncontradoException();
