@@ -14,13 +14,10 @@ public class RepositorioEquipamentoLista implements RepositorioEquipamento {
 	}
 
 	@Override
-	public void inserir(Equipamento equipamento) throws EquipamentoJaCadastradoException {
+	public void inserir(Equipamento equipamento){
 		if (this.proximo == null) {
 			this.equipamento = equipamento;
 			this.proximo = new RepositorioEquipamentoLista();
-		} 
-		else if (existe(this.equipamento.getNome())) {
-			throw new EquipamentoJaCadastradoException();
 		}
 		else {
 			this.proximo.inserir(equipamento);
@@ -29,16 +26,15 @@ public class RepositorioEquipamentoLista implements RepositorioEquipamento {
 
 	@Override
 	public void remover(String nome) throws EquipamentoNaoEncontradoException {
-		if (!existe(nome)) {
-			throw new EquipamentoNaoEncontradoException();
-		}
-		else if (this.equipamento != null && this.equipamento.getNome().equals(nome)) {
+		if (this.equipamento != null && this.equipamento.getNome().equals(nome)) {
 			 if (this.proximo != null) {
 				this.equipamento = this.proximo.equipamento;
 				this.proximo = this.proximo.proximo;
 			}
-		} else {
+		} else if (this.proximo != null){
 			this.proximo.remover(nome);
+		} else{
+			throw new EquipamentoNaoEncontradoException();
 		}
 	}
 
@@ -64,7 +60,7 @@ public class RepositorioEquipamentoLista implements RepositorioEquipamento {
 	}
 	@Override
 	public boolean existe(String nome) {
-		if (this.equipamento.getNome().equals(nome)) {
+		if (this.equipamento != null && this.equipamento.getNome().equals(nome)) {
 			return true;
 		} else if (this.proximo != null){
 			return this.proximo.existe(nome);

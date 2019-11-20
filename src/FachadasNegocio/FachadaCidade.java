@@ -17,21 +17,18 @@ public class FachadaCidade{
     // Verificação de existência da cidade
     public boolean existe(String nome){ return repositorioCidade.existe(nome);}
 
-    public void inserir(Cidade cidade) throws CidadeJaExisteException, CidadeInvalidaException, PopulacaoInvalidaException, CidadeInvalidaException,
-            MissaoInvalidaException, PersonagemNaoExisteException{
+    public void inserir(Cidade cidade) throws CidadeJaExisteException, CidadeInvalidaException, PopulacaoInvalidaException, 
+    CidadeInvalidaException, MissaoInvalidaException{
         if (cidade != null)
         {
             if (!repositorioCidade.existe(cidade.getCidade()))
             {
-                if (cidade.getPopulacao()>0)
+                if (cidade.getPopulacao() > 0)
                 {
                     if (cidade.getVendedor() != null)
                     {
                         if(cidade.getMissao() != null){
-                            if(cidade.getMonstro() != null){
-                                repositorioCidade.inserir(cidade);
-                            }
-                            else throw new PersonagemNaoExisteException();
+                            repositorioCidade.inserir(cidade);
                         }
                         else throw new MissaoInvalidaException();
                     }
@@ -49,26 +46,17 @@ public class FachadaCidade{
 
  // Procura uma cidade caso exista
     public Cidade procurar(String nome) throws CidadeNaoExisteException, CidadeInvalidaException{
-        if (nome != null)
-        {
+        if (nome != null) {
             return repositorioCidade.procurar(nome);
-        }
-        else
+        } else
             throw new CidadeInvalidaException();
     }
 
  // Remove uma cidade do repositório
     public void remover(String nome) throws CidadeNaoExisteException, CidadeInvalidaException{
-        if (nome != null)
-        {
-            if (repositorioCidade.existe(nome))
-            {
-                repositorioCidade.remover(nome);
-            }
-            else
-                throw new CidadeNaoExisteException();
-        }
-        else
+        if (nome != null) {
+            repositorioCidade.remover(nome);
+        } else
             throw new CidadeInvalidaException();
     }
 

@@ -15,10 +15,8 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
 		this.posicao = 0;
 	}
 	
-	public void inserir(Equipamento equipamento) throws EquipamentoJaCadastradoException {
-		if (existe(equipamento.getNome())) {
-			throw new EquipamentoJaCadastradoException();
-		} else if (this.posicao < ListaEquipamento.length) {
+	public void inserir(Equipamento equipamento) {
+		if (this.posicao < ListaEquipamento.length) {
             this.ListaEquipamento[this.posicao] = equipamento;
             this.posicao = this.posicao + 1;
 		} else {
