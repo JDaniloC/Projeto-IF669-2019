@@ -16,6 +16,10 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
 	}
 	
 	public void inserir(Equipamento equipamento) throws EquipamentoJaCadastradoException {
+		/*
+		 Insere um novo Equipamento, e dobra o Array caso esteja cheio
+		 */
+		
 		if (existe(equipamento.getNome())) {
 			throw new EquipamentoJaCadastradoException();
 		} else if (this.posicao < ListaEquipamento.length) {
@@ -29,6 +33,10 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
 	}
   
 	public void remover(String nome) throws EquipamentoNaoEncontradoException {
+		/*
+		 Procura o nome do Equipamento e o remove
+		 */
+		
 		if (existe(nome)) {
 			for (int i = 0; i < ListaEquipamento.length; i++) {
                 if (nome.equals(this.ListaEquipamento[i].getNome())) {
@@ -37,6 +45,9 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
                     i = ListaEquipamento.length;
                 }
             }
+			/*
+			 Reorgarniza o array
+			 */
 			for(int i = 0; i < ListaEquipamento.length-1; i++){
                 if(this.ListaEquipamento[i] == null && this.ListaEquipamento[i+1] != null){
                     this.ListaEquipamento[i] = this.ListaEquipamento[i+1];
@@ -48,7 +59,9 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
 			throw new EquipamentoNaoEncontradoException();
 		}
 	}
-
+	/*
+	 * Atualiza um Equipamento ja inserido
+	 */
 	public void atualizar(Equipamento equipamento) throws EquipamentoNaoEncontradoException {
 		if(existe(equipamento.getNome())) {
 			for (int i = 0; i < ListaEquipamento.length; i++) {
@@ -60,7 +73,9 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
             throw new EquipamentoNaoEncontradoException();
         }
 	}
-
+	/*
+	 Informa se o equipamento esta inserido 
+	 */
 	public boolean existe(String nome) {
 		for (int i = 0; i < ListaEquipamento.length; i++) {
             if (ListaEquipamento[i]!= null && nome.equals(ListaEquipamento[i].getNome())) {
@@ -69,7 +84,9 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
         }
         return false;
     }
-
+	/*
+	 Procura e retorna o equipamento caso esteja inserido
+	 */
 	public Equipamento procurar(String nome) throws EquipamentoNaoEncontradoException {
 		for (int i = 0; i < ListaEquipamento.length; i++) {
             if (this.ListaEquipamento[i].getNome().equals(nome)) {
