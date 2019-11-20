@@ -27,16 +27,17 @@ public class InterfaceUsuario {
     public static void main(String[] args) {
 
         // Criação das fachadas
+        /*
         FachadaEquipamento equipamento = new FachadaEquipamento(new RepositorioEquipamentoArray(3));
         FachadaCidade cidade = new FachadaCidade(new RepositorioCidadeArray());
         FachadaPersonagem personagem = new FachadaPersonagem(new RepositorioPersonagemArray());
         FachadaMagia magia = new FachadaMagia(new RepositorioMagiaArray());
-        /*
+        */
         FachadaEquipamento equipamento = new FachadaEquipamento(new RepositorioEquipamentoLista());
         FachadaCidade cidade = new FachadaCidade(new RepositorioCidadeLista());
         FachadaPersonagem personagem = new FachadaPersonagem(new RepositorioPersonagemLista());
         FachadaMagia magia = new FachadaMagia(new RepositorioMagiaLista());
-        */
+
         // Criação da fachada geral
         FachadaGeral programa = new FachadaGeral(personagem, equipamento, cidade, magia);
 
@@ -375,9 +376,11 @@ public class InterfaceUsuario {
             // Atualização
             programa.cadastrarCidade(cidade02);
             System.out.println("Carlin cadastrado.");
+            System.out.printf("População Carlin: %d\n", programa.procurarLocal("Carlin").getPopulacao());
             // Mudando a população e atualizando.
             cidade02.setPopulacao(50);
-
+            programa.atualizarCidade(cidade02);
+            System.out.printf("População modificada: %d\n", programa.procurarLocal("Carlin").getPopulacao());
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -417,7 +420,7 @@ public class InterfaceUsuario {
             System.out.println(e.getMessage());
         }
 
-        Cidade erro = new Cidade("Erro", 1, equipamento01, new String[]{""}, personagem05);
+        Cidade erro = new Cidade("Erro", 1, equipamento01, "", personagem05);
         try{
             // MissaoInvalidaException
             erro.setMissao(null);

@@ -9,4 +9,5 @@ public interface RepositorioCidade {
     void remover (String nome) throws CidadeNaoExisteException;
     boolean existe(String nome);
     Cidade procurar(String nome) throws CidadeNaoExisteException;
+    void atualizar(Cidade cidade) throws CidadeNaoExisteException;
 }

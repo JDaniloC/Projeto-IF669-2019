@@ -58,4 +58,18 @@ public class RepositorioCidadeArray implements RepositorioCidade {
             throw new CidadeNaoExisteException();
         }
     }
+    
+    // Atualiza uma cidade do array
+    public void atualizar(Cidade cidade) throws CidadeNaoExisteException{
+        boolean achou = false;
+        for (int i = 0; i < this.cidadeArray.length && cidadeArray[i] != null; i++){
+            if (cidade.getCidade().equals(cidadeArray[i].getCidade())){
+                cidadeArray[i] = cidade;
+                achou = true;
+            }
+        }
+        if (!achou){
+            throw new CidadeNaoExisteException();
+        }
+    }
 }

@@ -69,8 +69,8 @@
 - [x] [Magia](./src/FachadasNegocio/FachadaMagia.java)
 
 ### Fachada Geral e Interface de Usuário
-- [ ] [Fachada Geral](./src/FachadaGeral/FachadaGeral.java)
-- [ ] [Interface de Usuário](./src/FachadaGeral/InterfaceUsuario.java)
+- [x] [Fachada Geral](./src/FachadaGeral/FachadaGeral.java)
+- [x] [Interface de Usuário](./src/FachadaGeral/InterfaceUsuario.java)
 
 ### Comentado
-:white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_large_square::white_large_square::white_large_square::white_large_square:
+:white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_large_square:

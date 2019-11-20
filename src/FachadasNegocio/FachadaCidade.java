@@ -44,7 +44,7 @@ public class FachadaCidade{
             throw new CidadeInvalidaException();
     }
 
- // Procura uma cidade caso exista
+    // Procura uma cidade caso exista
     public Cidade procurar(String nome) throws CidadeNaoExisteException, CidadeInvalidaException{
         if (nome != null) {
             return repositorioCidade.procurar(nome);
@@ -52,7 +52,7 @@ public class FachadaCidade{
             throw new CidadeInvalidaException();
     }
 
- // Remove uma cidade do repositório
+    // Remove uma cidade do repositório
     public void remover(String nome) throws CidadeNaoExisteException, CidadeInvalidaException{
         if (nome != null) {
             repositorioCidade.remover(nome);
@@ -60,4 +60,12 @@ public class FachadaCidade{
             throw new CidadeInvalidaException();
     }
 
+    // Atualiza uma cidade do repositório
+    public void atualizar(Cidade cidade) throws CidadeNaoExisteException, CidadeInvalidaException{
+        if (cidade.getCidade() != null){
+            repositorioCidade.atualizar(cidade);
+        } else{
+            throw new CidadeInvalidaException();
+        }
+    }
 }

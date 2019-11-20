@@ -20,14 +20,19 @@ public class RepositorioCidadeLista implements RepositorioCidade{
         if (this.cidade == null){
             this.cidade = cidade;
             this.prox = new RepositorioCidadeLista();
-        } else this.prox.inserir(cidade);
+        } else {
+            if (this.prox == null){
+                this.prox = new RepositorioCidadeLista();
+            }
+            this.prox.inserir(cidade);
+        }
     }
 
     // Verifica se uma cidade existe
     public boolean existe(String nome){
-        if(nome.equals(cidade.getCidade())){
+        if(cidade != null && nome.equals(cidade.getCidade())){
             return true;
-        }else if(this.prox==null){
+        }else if (this.prox == null){
             return false;
         }else{
             return this.prox.existe(nome);
@@ -44,19 +49,30 @@ public class RepositorioCidadeLista implements RepositorioCidade{
                 this.cidade = null;
             }
         } else if (this.prox != null) { 
-            this.prox.remover(this.cidade.getCidade());
+            this.prox.remover(nome);
+        } else {
+            throw new CidadeNaoExisteException();
         }
-        throw new CidadeNaoExisteException();
     }
 
     // Procura uma cidade na lista
     public Cidade procurar(String nome) throws CidadeNaoExisteException {
-        if(nome.equals(cidade.getCidade())|| nome.equals(cidade.getMissao()) || nome.equals(cidade.getMonstro().getNome())){
+        if((this.cidade != null) && (nome.equals(this.cidade.getCidade()) || nome.equals(cidade.getMissao()) || nome.equals(cidade.getMonstro().getNome()))){
             return this.cidade;
         } else if (this.prox != null){
-            this.prox.procurar(nome);
+            return this.prox.procurar(nome);
         }
         throw new CidadeNaoExisteException();
     }
 
+    // Atualiza uma cidade na lista
+    public void atualizar(Cidade cidade) throws CidadeNaoExisteException{
+        if (cidade.getCidade().equals(this.cidade.getCidade())){
+            this.cidade = cidade;
+        } else if (this.prox != null){
+            this.prox.atualizar(cidade);
+        } else {
+            throw new CidadeNaoExisteException();
+        }
+    }
 }
