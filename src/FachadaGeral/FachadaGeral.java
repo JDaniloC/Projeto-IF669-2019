@@ -59,63 +59,10 @@ public class FachadaGeral{
 
     //Cidade
 
-    public void cadastrarCidade(Cidade cidade) throws CidadeJaExisteException, CidadeNaoExisteException, PopulacaoInvalidaException, MissaoInvalidaException,
-            CidadeInvalidaException, PersonagemNaoExisteException{
-        if (cidade != null)
-        {
-            if (!fachadaCidade.existe(cidade.getCidade()))
-            {
-                if (cidade.getPopulacao()>0)
-                {
-                    if (cidade.getVendedor() != null)
-                    {
-                        if(cidade.getMissao() != null){
-                            if(cidade.getMonstro() != null){
-                                fachadaCidade.inserir(cidade);
-                            }
-                            else throw new PersonagemNaoExisteException();
-                        }
-                        else throw new MissaoInvalidaException();
-                    }
-                    else throw new CidadeInvalidaException();
-                }
-                else
-                    throw new PopulacaoInvalidaException();
-            }
-            else
-                throw new CidadeJaExisteException();
-        }
-        else
-            throw new CidadeInvalidaException();
-    }
-
-    public void removerCidade(String nome) throws CidadeInvalidaException, CidadeNaoExisteException {
-        if (nome != null)
-        {
-            if (fachadaCidade.existe(nome))
-            {
-                fachadaCidade.remover(nome);
-            }
-            else
-                throw new CidadeNaoExisteException();
-        }
-        else
-            throw new CidadeInvalidaException();
-    }
-
-    public Cidade procurarLocal(String nome) throws CidadeInvalidaException, CidadeNaoExisteException {
-        if (nome != null)
-        {
-            if (fachadaCidade.existe(nome))
-            {
-                return fachadaCidade.procurar(nome);
-            }
-            else
-                throw new CidadeNaoExisteException();
-        }
-        else
-            throw new CidadeInvalidaException();
-    }
+    public void cadastrarCidade(Cidade cidade) throws CidadeJaExisteException, CidadeInvalidaException, PopulacaoInvalidaException, CidadeInvalidaException,
+            MissaoInvalidaException, PersonagemNaoExisteException { fachadaCidade.inserir(cidade); }
+    public void removerCidade(String nome) throws CidadeNaoExisteException, CidadeInvalidaException { fachadaCidade.remover(nome);    }
+    public Cidade procurarLocal(String nome) throws CidadeInvalidaException, CidadeNaoExisteException { return fachadaCidade.procurar(nome);  }
 
     public void cadastrarEquipamento(Equipamento equipamento) throws EquipamentoJaCadastradoException  {
     	fachadaEquipamento.cadastrar(equipamento);
