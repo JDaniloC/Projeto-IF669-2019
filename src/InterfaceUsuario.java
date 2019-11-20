@@ -311,6 +311,66 @@ public class InterfaceUsuario {
 
         // Test repositórios
         System.out.println("\nTESTES REPOSITÓRIOS:");
+        
+        //Cadastro
+        try{
+            Cidade cidade1 = new Cidade("Paracetamol",1000,equipamento01,"Mate 5 goblins",personagem03);
+            programa.cadastrarCidade(cidade1);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        //Procura
+        try{
+            programa.procurarLocal("Paracetamol");
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        //Remocao
+        try{
+            programa.removerCidade("Paracetamol");
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        //MissaoInvalidaException
+        try{
+            Cidade cidade2 = new Cidade("Cidadelonge",10,equipamento01, null,personagem03);
+            programa.cadastrarCidade(cidade2);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        //PopulacaoInvalidaException
+        try{
+            Cidade cidade3 = new Cidade("Cidadeperto",0,equipamento01, "Mate 5 lobos",personagem03);
+            programa.cadastrarCidade(cidade3);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        //CidadeInvalidaException
+        try{
+            Cidade cidade4 = new Cidade(null,2000,equipamento01, "Mate 5 trolls",personagem03);
+            programa.cadastrarCidade(cidade4);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            Cidade cidade5 = new Cidade("Cidadeali",500,equipamento01,"Mate 3 goblins",personagem03);
+            programa.cadastrarCidade(cidade5);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        //CidadeNaoExisteException
+        try{
+            programa.procurarLocal("tamol");
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        //CidadeNaoExisteException e confirmacao de remocao
+        try{
+            programa.procurarLocal("Paracetamol");
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        //Fim do teste de Cidade
 
     }
 }
