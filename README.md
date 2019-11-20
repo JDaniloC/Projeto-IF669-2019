@@ -3,10 +3,10 @@
 > RPG Companion
 
 ### Integrantes
-- João Mazzarolo
-- José Danilo
-- Julio Vinícius
-- Thiago Henrique
+- João Mazzarolo - Cidade
+- José Danilo  - Personagem
+- Julio Vinícius - Magia
+- Thiago Henrique - Equipamento
 
 ## Desenvolvimento
 
@@ -73,4 +73,4 @@
 - [ ] [Interface de Usuário](./src/FachadaGeral/InterfaceUsuario.java)
 
 ### Comentado
-:white_check_mark:	:white_check_mark:	:white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_large_square::white_large_square::white_large_square::white_large_square:
+:white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_large_square::white_large_square::white_large_square::white_large_square:

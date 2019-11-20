@@ -54,6 +54,7 @@ public class RepositorioPersonagemArray implements RepositorioPersonagem{
                 colecao[i] = colecao[i+1];
                 colecao[i+1] = aux;
                 encontrou = true;
+                quantidade --;
             } else if (colecao[i] != null && colecao[i].getNome().equals(nome)){
                 colecao[i] = null;
                 quantidade --;

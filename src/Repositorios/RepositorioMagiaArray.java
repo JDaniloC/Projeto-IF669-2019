@@ -34,16 +34,16 @@ public class RepositorioMagiaArray implements RepositorioMagia {
 
 	@Override
 	public void atualizar(Magia magia) throws MagiaNaoEncontradoException {
-		 boolean encontrou = false;
-	        for (int i = 0; i < quantidade && !encontrou; i++){
-	            if (colecao[i].getNome().equals(magia.getNome())){
-	                colecao[i] = magia;
-	                encontrou = true;
-	            }
-	        }
-	        if (!encontrou){
-	           throw new MagiaNaoEncontradoException();
-	        }
+		boolean encontrou = false;
+		for (int i = 0; i < quantidade && !encontrou; i++){
+			if (colecao[i].getNome().equals(magia.getNome())){
+				colecao[i] = magia;
+				encontrou = true;
+			}
+		}
+		if (!encontrou){
+		   throw new MagiaNaoEncontradoException();
+		}
 		
 	}
 
@@ -56,6 +56,7 @@ public class RepositorioMagiaArray implements RepositorioMagia {
                 colecao[i] = colecao[i+1];
                 colecao[i+1] = aux;
                 encontrou = true;
+                quantidade --;
             } else if (colecao[i] != null && colecao[i].getNome().equals(nome)){
                 colecao[i] = null;
                 quantidade --;
@@ -87,5 +88,4 @@ public class RepositorioMagiaArray implements RepositorioMagia {
         }
 		return false;
 	}
-
 }

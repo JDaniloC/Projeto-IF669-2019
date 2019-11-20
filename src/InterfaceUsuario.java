@@ -21,8 +21,7 @@ public class InterfaceUsuario {
     private static String[] criaFraqueza(){
         Random gerador = new Random();
         String[] fraquezas = {"Fogo", "Agua", "Terra", "Ar", "Avatar"};
-        String[] escolhidos = {fraquezas[gerador.nextInt(4)], fraquezas[gerador.nextInt(4)]};
-        return escolhidos;
+        return new String[]{fraquezas[gerador.nextInt(4)], fraquezas[gerador.nextInt(4)]};
     }
 
     public static void main(String[] args) {
@@ -45,7 +44,8 @@ public class InterfaceUsuario {
         System.out.println("EQUIPAMENTO\n");
         // Cadastro, atualização e procura
         System.out.println("CADASTRO, ATUALIZAÇÃO E PROCURA:");
-        Equipamento equipamento01 = new Equipamento("TornozeleiraBerserk", 150, 0, 40, 20, "Aumenta sua Defesa e Vida");
+        Equipamento equipamento01 = new Equipamento("TornozeleiraBerserk", 150, 0,
+                40, 20, "Aumenta sua Defesa e Vida");
         try {
             // Cadastrar
             programa.cadastrarEquipamento(equipamento01);
@@ -54,8 +54,10 @@ public class InterfaceUsuario {
             System.out.println(e.getMessage());
         }
 
-        Equipamento equipamento02 = new Equipamento("Gargantuilha", 350, 100, 0, 0, "Aumenta consideravelmente seu Ataque");
+        Equipamento equipamento02 = new Equipamento("Gargantuilha", 350, 100, 0,
+                0, "Aumenta consideravelmente seu Ataque");
         try {
+            // Atualização
             programa.cadastrarEquipamento(equipamento02);
             System.out.println("Gargantuilha cadastradoa.");
             // Mudando o ataque e atualizando.
@@ -66,7 +68,8 @@ public class InterfaceUsuario {
             System.out.println(e.getMessage());
         }
 
-        Equipamento equipamento03 = new Equipamento("ColarDeCaveira", 1000, 150, 200, 150, "Aumenta consideravelmente seu Ataque, Defesa e Vida");
+        Equipamento equipamento03 = new Equipamento("ColarDeCaveira", 1000, 150, 200,
+                150, "Aumenta consideravelmente seu Ataque, Defesa e Vida");
         try {
             // Procurar
             programa.cadastrarEquipamento(equipamento03);
@@ -81,15 +84,14 @@ public class InterfaceUsuario {
         System.out.println("\nTESTES DE EXCEÇÕES:");
         try {
             // EquipamentoNaoEncontradoException
-            Equipamento erro = programa.procurarEquipamento("SuddenDeath");
+            programa.procurarEquipamento("SuddenDeath");
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
 
         try {
             // EquipamentoJaCadastradoException
-            Equipamento equipamento04 = new Equipamento("ColarDeCaveira", 1000, 150, 200, 150, "Aumenta consideravelmente seu Ataque, Defesa e Vida");
-            programa.cadastrarEquipamento(equipamento04);
+            programa.cadastrarEquipamento(equipamento01);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -98,19 +100,19 @@ public class InterfaceUsuario {
         System.out.println("\nTESTES REPOSITÓRIOS:");
         try{
             // Removeu certo
-            programa.removerEquipamento("TornozeleiraBerserk");
-            System.out.println("Removeu TornozeleiraBerserk");
-            programa.procurarEquipamento("TornozeleiraBeserk");
+            programa.removerEquipamento("Gargantuilha");
+            System.out.println("Removeu Gargantuilha.");
+            programa.procurarEquipamento("Gargantuilha");
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
 
         try {
             // Removendo todos
-            programa.procurarEquipamento("Gargantuilha");
-            System.out.println("Encontrou Gargantuilha.");
-            programa.removerEquipamento("Gargantuilha");
-            System.out.println("Removeu Gargantuilha.");
+            programa.procurarEquipamento("TornozeleiraBeserk");
+            System.out.println("Encontrou TornozeleiraBeserk.");
+            programa.removerEquipamento("TornozeleiraBerserk");
+            System.out.println("Removeu TornozeleiraBerserk");
             programa.removerEquipamento("ColarDeCaveira");
             System.out.println("Removeu Gargantuilha.");
             programa.cadastrarEquipamento(equipamento01);
@@ -119,6 +121,22 @@ public class InterfaceUsuario {
             System.out.println("Adicionou Gargantuilha");
             programa.cadastrarEquipamento(equipamento03);
             System.out.println("Adicionou ColarDeCaveira");
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("\nNOVOS CADASTROS");
+        Equipamento equipamento04 = new Equipamento("Moedas", 0, 0, 0, 0,
+                "Usado para comprar");
+        Equipamento equipamento05 = new Equipamento("Espada do rei caido", 3100, 230, 0, 100,
+                "Roubo de vida");
+        try{
+            // Novos para os próximos
+            programa.cadastrarEquipamento(equipamento04);
+            System.out.println("Moedas cadastrado.");
+            programa.cadastrarEquipamento(equipamento05);
+            System.out.println("Espada do rei caido cadastrado.");
+
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -139,8 +157,10 @@ public class InterfaceUsuario {
             System.out.println(e.getMessage());
         }
 
-        Magia magia02 = new Magia("Curar", 0, 2, 10, "Restaura estado", "Restauração");
+        Magia magia02 = new Magia("Curar", 0, 2, 10, "Restaura estado",
+                "Restauração");
         try{
+            // Atualização
             programa.cadastrarMagia(magia02);
             System.out.println("Curar cadastrado.");
             // Mudando o gasto e atualizando.
@@ -151,7 +171,8 @@ public class InterfaceUsuario {
             System.out.println(e.getMessage());
         }
 
-        Magia magia03 = new Magia("Divine Smite", 100, 20, 0, "SUPER Poderoso", "divino");
+        Magia magia03 = new Magia("Divine Smite", 100, 20, 0, "SUPER Poderoso",
+                "divino");
         try{
             // Procurar
             programa.cadastrarMagia(magia03);
@@ -207,6 +228,21 @@ public class InterfaceUsuario {
             System.out.println(e.getMessage());
         }
 
+        System.out.println("\nNOVOS CADASTROS");
+        Magia magia04 = new Magia("Conjurar", 10, 120, 0, "Conjura dois elementais",
+                "Invocação");
+        Magia magia05 = new Magia("Invisibilidade", 0, 50, 0, "Ficar invisível por 3 turnos",
+                "Ilusão");
+        try{
+            // Novos para os próximos
+            programa.cadastrarMagia(magia04);
+            System.out.println("Conjurar cadastrado.");
+            programa.cadastrarMagia(magia05);
+            System.out.println("Invisibilidade cadastrado.");
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
         // Personagem
         System.out.println("\nPERSONAGEM\n");
         // Cadastro, atualização e procura
@@ -222,6 +258,7 @@ public class InterfaceUsuario {
 
         Heroi personagem02 = criaHeroi("Julio", equipamento02, magia02);
         try{
+            // Atualização
             programa.adicionarPersonagem(personagem02);
             System.out.println("Julio cadastrado.");
             System.out.printf("Nível: %d\n", programa.getNivelPersonagem("Julio"));
@@ -263,10 +300,10 @@ public class InterfaceUsuario {
 
         try{
             // EntradaInvalidaException
-            programa.danoPersonagem("Thiago", "Mp", 2);
-            System.out.printf("Mp: %d\n", programa.getMpPersonagem("Thiago"));
-            System.out.println("Thiago sofreu dano!");
-            System.out.printf("Mp: %d\n", programa.getMpPersonagem("Thiago"));
+            System.out.printf("Mp de João: %d\n", programa.getMpPersonagem("João"));
+            programa.danoPersonagem("João", "Mp", 5);
+            System.out.println("João sofreu dano!");
+            System.out.printf("Mp de João: %d\n", programa.getMpPersonagem("João"));
             programa.danoPersonagem("Danilo", "Errado", 10);
         } catch (Exception e){
             System.out.println(e.getMessage());
@@ -301,76 +338,125 @@ public class InterfaceUsuario {
             System.out.println(e.getMessage());
         }
 
+        System.out.println("\nNOVOS CADASTROS");
+        Monstro personagem04 = criaMonstro("Medusa", equipamento04, magia04);
+        Monstro personagem05 = criaMonstro("Thiago", equipamento05, magia05);
+        try{
+            // Novos para os próximos
+            programa.adicionarPersonagem(personagem04);
+            System.out.println("Medusa adicionado.");
+            programa.adicionarPersonagem(personagem05);
+            System.out.println("Thiago adicionado.");
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
         // Cidade
         System.out.println("\nCIDADE\n");
         // Cadastro, atualização e procura
         System.out.println("CADASTRO, ATUALIZAÇÃO E PROCURA:");
+        Cidade cidade01 = new Cidade("Noxus", 100, equipamento01,
+                new String[]{"Comprar o primeiro equipamento", "Concluir a primeira missão"}, personagem03);
+        try{
+            // Cadastro
+            programa.cadastrarCidade(cidade01);
+            System.out.println("Noxus cadastrada.");
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        Cidade cidade02 = new Cidade("Carlin", 20, equipamento02,
+                new String[]{"Matar o primeiro PK", "Matar o primeiro monstro"}, personagem04);
+        try{
+            // Atualização
+            programa.cadastrarCidade(cidade02);
+            System.out.println("Carlin cadastrado.");
+            // Mudando a população e atualizando.
+            cidade02.setPopulacao(50);
+
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        Cidade cidade03 = new Cidade("Cerulean", 30, equipamento03,
+                new String[]{"Salve Zelda", "Reconstrua a muralha Maria"}, personagem05);
+        try{
+            // Procura
+            programa.cadastrarCidade(cidade03);
+            System.out.println("Cerulean cadastrado.");
+            programa.procurarLocal("Cerulean");
+            System.out.println("Encontrou Cerulean.");
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
         // Test exceções
         System.out.println("\nTESTES DE EXCEÇÕES:");
+        try{
+            // CidadeNaoExisteException
+            programa.procurarLocal("Metrópolis");
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        try{
+            // CidadeJaExisteException
+            programa.cadastrarCidade(cidade01);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        try{
+            // CidadeInvalidaException
+            programa.cadastrarCidade(null);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        Cidade erro = new Cidade("Erro", 1, equipamento01, new String[]{""}, personagem05);
+        try{
+            // MissaoInvalidaException
+            erro.setMissao(null);
+            programa.cadastrarCidade(erro);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        try{
+            // PopulacaoInvalidaException
+            erro.setPopulacao(0);
+            programa.cadastrarCidade(erro);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
         // Test repositórios
         System.out.println("\nTESTES REPOSITÓRIOS:");
-        
-        //Cadastro
         try{
-            Cidade cidade1 = new Cidade("Paracetamol",1000,equipamento01,"Mate 5 goblins",personagem03);
-            programa.cadastrarCidade(cidade1);
+            // Removendo certo
+            programa.removerCidade("Carlin");
+            System.out.println("Removeu Carlin.");
+            programa.procurarLocal("Carlin");
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        //Procura
-        try{
-            programa.procurarLocal("Paracetamol");
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        //Remocao
-        try{
-            programa.removerCidade("Paracetamol");
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        //MissaoInvalidaException
-        try{
-            Cidade cidade2 = new Cidade("Cidadelonge",10,equipamento01, null,personagem03);
-            programa.cadastrarCidade(cidade2);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        //PopulacaoInvalidaException
-        try{
-            Cidade cidade3 = new Cidade("Cidadeperto",0,equipamento01, "Mate 5 lobos",personagem03);
-            programa.cadastrarCidade(cidade3);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        //CidadeInvalidaException
-        try{
-            Cidade cidade4 = new Cidade(null,2000,equipamento01, "Mate 5 trolls",personagem03);
-            programa.cadastrarCidade(cidade4);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        try{
-            Cidade cidade5 = new Cidade("Cidadeali",500,equipamento01,"Mate 3 goblins",personagem03);
-            programa.cadastrarCidade(cidade5);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        //CidadeNaoExisteException
-        try{
-            programa.procurarLocal("tamol");
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        //CidadeNaoExisteException e confirmacao de remocao
-        try{
-            programa.procurarLocal("Paracetamol");
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        //Fim do teste de Cidade
 
+        try{
+            // Removendo todos
+            programa.procurarLocal("Noxus");
+            System.out.println("Encontrou Noxus.");
+            programa.removerCidade("Noxus");
+            System.out.println("Removeu Noxus.");
+            programa.removerCidade("Cerulean");
+            System.out.println("Removeu Cerulean.");
+            programa.cadastrarCidade(cidade01);
+            System.out.println("Adicionou Noxus");
+            programa.cadastrarCidade(cidade02);
+            System.out.println("Adicionou Carlin");
+            programa.cadastrarCidade(cidade03);
+            System.out.println("Adicionou Cerulean");
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }
