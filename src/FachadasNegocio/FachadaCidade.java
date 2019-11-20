@@ -1,16 +1,19 @@
 package FachadasNegocio;
 
+import Excecoes.*;
 import Repositorios.RepositorioCidade;
 import ClassesBasicas.Cidade;
-import Excecoes.CidadeJaExisteException;
-import Excecoes.CidadeNaoExisteException;
 import Repositorios.RepositorioCidade;
 import Repositorios.RepositorioCidadeArray;
 import Repositorios.RepositorioCidadeLista;
 
 public class FachadaCidade{
     private RepositorioCidade repositorioCidade;
-
+    
+    public FachadaCidade (RepositorioCidade rep){
+        repositorioCidade = rep;
+    }
+    
     // Verificação de existência da cidade
     public boolean existe(String nome){ return repositorioCidade.existe(nome);}
 
