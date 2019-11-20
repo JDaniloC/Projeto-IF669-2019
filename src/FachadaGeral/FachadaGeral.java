@@ -60,7 +60,10 @@ public class FachadaGeral{
     //Cidade
 
     public void cadastrarCidade(Cidade cidade) throws CidadeJaExisteException, CidadeInvalidaException, PopulacaoInvalidaException, CidadeInvalidaException,
-            MissaoInvalidaException, PersonagemNaoExisteException { fachadaCidade.inserir(cidade); }
+            MissaoInvalidaException, PersonagemNaoExisteException { 
+                procurarPersonagem(cidade.getMonstro());
+                fachadaCidade.inserir(cidade); 
+            }
     public void removerCidade(String nome) throws CidadeNaoExisteException, CidadeInvalidaException { fachadaCidade.remover(nome);    }
     public Cidade procurarLocal(String nome) throws CidadeInvalidaException, CidadeNaoExisteException { return fachadaCidade.procurar(nome);  }
 

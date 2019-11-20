@@ -40,6 +40,7 @@ public class InterfaceUsuario {
         // Criação da fachada geral
         FachadaGeral programa = new FachadaGeral(personagem, equipamento, cidade, magia);
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Equipamento
         System.out.println("EQUIPAMENTO\n");
         // Cadastro, atualização e procura
@@ -141,6 +142,7 @@ public class InterfaceUsuario {
             System.out.println(e.getMessage());
         }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Magia
         System.out.println("\nMAGIA\n");
         // Cadastro, atualização, exite e procura
@@ -243,6 +245,7 @@ public class InterfaceUsuario {
             System.out.println(e.getMessage());
         }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Personagem
         System.out.println("\nPERSONAGEM\n");
         // Cadastro, atualização e procura
@@ -350,13 +353,14 @@ public class InterfaceUsuario {
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-
+        
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Cidade
         System.out.println("\nCIDADE\n");
         // Cadastro, atualização e procura
         System.out.println("CADASTRO, ATUALIZAÇÃO E PROCURA:");
         Cidade cidade01 = new Cidade("Noxus", 100, equipamento01,
-                new String[]{"Comprar o primeiro equipamento", "Concluir a primeira missão"}, personagem03);
+                "Comprar o primeiro equipamento", personagem03);
         try{
             // Cadastro
             programa.cadastrarCidade(cidade01);
@@ -366,7 +370,7 @@ public class InterfaceUsuario {
         }
 
         Cidade cidade02 = new Cidade("Carlin", 20, equipamento02,
-                new String[]{"Matar o primeiro PK", "Matar o primeiro monstro"}, personagem04);
+                "Matar o primeiro monstro", personagem04);
         try{
             // Atualização
             programa.cadastrarCidade(cidade02);
@@ -379,7 +383,7 @@ public class InterfaceUsuario {
         }
 
         Cidade cidade03 = new Cidade("Cerulean", 30, equipamento03,
-                new String[]{"Salve Zelda", "Reconstrua a muralha Maria"}, personagem05);
+                "Reconstrua a muralha Maria", personagem05);
         try{
             // Procura
             programa.cadastrarCidade(cidade03);

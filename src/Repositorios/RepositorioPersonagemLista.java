@@ -17,7 +17,7 @@ public class RepositorioPersonagemLista implements RepositorioPersonagem{
         /*
         Adiciona um novo personagem, criando um novo ponteiro se necessário.
         */
-        if (person == null){
+        if (this.person == null){
             this.person = person;
         } else{
             if (next == null){

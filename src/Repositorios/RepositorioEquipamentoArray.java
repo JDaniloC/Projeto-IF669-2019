@@ -15,16 +15,13 @@ public class RepositorioEquipamentoArray implements RepositorioEquipamento {
 		this.posicao = 0;
 	}
 	
-	public void inserir(Equipamento equipamento) throws EquipamentoJaCadastradoException {
+	public void inserir(Equipamento equipamento) {
 		/*
 		 Insere um novo Equipamento, e dobra o Array caso esteja cheio
 		 */
-		
-		if (existe(equipamento.getNome())) {
-			throw new EquipamentoJaCadastradoException();
-		} else if (this.posicao < ListaEquipamento.length) {
-            this.ListaEquipamento[this.posicao] = equipamento;
-            this.posicao = this.posicao + 1;
+		if (this.posicao < ListaEquipamento.length) {
+            		this.ListaEquipamento[this.posicao] = equipamento;
+            		this.posicao = this.posicao + 1;
 		} else {
 			Equipamento[] newlista = Arrays.copyOfRange(ListaEquipamento, 0, ListaEquipamento.length*2);
 			this.ListaEquipamento = newlista;
