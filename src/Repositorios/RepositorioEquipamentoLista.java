@@ -25,6 +25,9 @@ public class RepositorioEquipamentoLista implements RepositorioEquipamento {
 	}
 
 	@Override
+	/*
+	 * Remove um Equipamento (caso exista) e recebe atributos do pr�ximo elemento 
+	 */
 	public void remover(String nome) throws EquipamentoNaoEncontradoException {
 		if (this.equipamento != null && this.equipamento.getNome().equals(nome)) {
 			 if (this.proximo != null) {
@@ -37,8 +40,11 @@ public class RepositorioEquipamentoLista implements RepositorioEquipamento {
 			throw new EquipamentoNaoEncontradoException();
 		}
 	}
-
+	
 	@Override
+	/*
+	 * Atualiza um Equipamento ja inserido
+	 */
 	public void atualizar(Equipamento equipamento) throws EquipamentoNaoEncontradoException {
 		if (this.equipamento == null) {
 			throw new EquipamentoNaoEncontradoException();
@@ -49,6 +55,9 @@ public class RepositorioEquipamentoLista implements RepositorioEquipamento {
 		}
 	}
 	@Override
+	/*
+	 * Procura e retorna o equipamento cajo esteja inserido
+	 */
 	public Equipamento procurar(String nome) throws EquipamentoNaoEncontradoException {
 		if (this.equipamento == null) {
 			throw new EquipamentoNaoEncontradoException();
@@ -59,6 +68,9 @@ public class RepositorioEquipamentoLista implements RepositorioEquipamento {
 		return this.proximo.procurar(nome);
 	}
 	@Override
+	/*
+	 * Informa se o equipamento esta inserido na Lista
+	 */
 	public boolean existe(String nome) {
 		if (this.equipamento != null && this.equipamento.getNome().equals(nome)) {
 			return true;
