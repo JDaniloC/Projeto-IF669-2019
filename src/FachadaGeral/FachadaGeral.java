@@ -64,6 +64,8 @@ public class FachadaGeral{
     public void removerCidade(String nome) throws CidadeNaoExisteException, CidadeInvalidaException { fachadaCidade.remover(nome);    }
     public Cidade procurarLocal(String nome) throws CidadeInvalidaException, CidadeNaoExisteException { return fachadaCidade.procurar(nome);  }
 
+    //Equipamento
+    
     public void cadastrarEquipamento(Equipamento equipamento) throws EquipamentoJaCadastradoException  {
     	fachadaEquipamento.cadastrar(equipamento);
     }
@@ -76,6 +78,8 @@ public class FachadaGeral{
     public Equipamento procurarEquipamento(String nome) throws EquipamentoNaoEncontradoException{
         return fachadaEquipamento.procurar(nome);
     }
+    
+    //Magia
     
     public void cadastrarMagia(Magia magia) throws MagiaJaExisteException {
     	fachadaMagia.inserir(magia);

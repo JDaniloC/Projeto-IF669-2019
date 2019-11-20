@@ -8,6 +8,9 @@ public class Equipamento {
 	private int vidaPlus;
 	private String atributosEsp;
 
+	/*
+	 * Atribuicao de valores aos seus atributos quando um Equipamento for criado
+	 */
 	public Equipamento(String nome, int preco, int ataque, int defesa, int vidaPlus, String atributosEsp) {
 		this.nome = nome;
 		this.preco = preco;
@@ -17,6 +20,9 @@ public class Equipamento {
 		this.atributosEsp = atributosEsp;
 	}
 
+	/*
+	 * Gets irao retornar os atributos
+	 */
 	public String getNome() {
 		return nome;
 	}
@@ -41,28 +47,30 @@ public class Equipamento {
 		return atributosEsp;
 	}
 
-	
-	public void setNome (String nome) {
+	/*
+	 * Sets irao modificar os atributos
+	 */
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	public void setPreco (int preco) {
+
+	public void setPreco(int preco) {
 		this.preco = preco;
 	}
-	
-	public void setAtaque (int ataque) {
+
+	public void setAtaque(int ataque) {
 		this.ataque = ataque;
 	}
-	
-	public void setDefesa (int defesa) {
+
+	public void setDefesa(int defesa) {
 		this.defesa = defesa;
 	}
-	
-	public void setVidaPlus (int vidaPlus) {
+
+	public void setVidaPlus(int vidaPlus) {
 		this.vidaPlus = vidaPlus;
 	}
-	
-	public void setAtributosEsp(String atributosEsp ) {
+
+	public void setAtributosEsp(String atributosEsp) {
 		this.atributosEsp = atributosEsp;
 	}
 }
