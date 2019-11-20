@@ -9,11 +9,11 @@ import Repositorios.RepositorioCidadeLista;
 
 public class FachadaCidade{
     private RepositorioCidade repositorioCidade;
-    
+
     public FachadaCidade (RepositorioCidade rep){
         repositorioCidade = rep;
     }
-    
+
     // Verificação de existência da cidade
     public boolean existe(String nome){ return repositorioCidade.existe(nome);}
 
@@ -51,12 +51,7 @@ public class FachadaCidade{
     public Cidade procurar(String nome) throws CidadeNaoExisteException, CidadeInvalidaException{
         if (nome != null)
         {
-            if (repositorioCidade.existe(nome))
-            {
-                return repositorioCidade.procurar(nome);
-            }
-            else
-                throw new CidadeNaoExisteException();
+            return repositorioCidade.procurar(nome);
         }
         else
             throw new CidadeInvalidaException();

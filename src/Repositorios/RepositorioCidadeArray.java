@@ -3,6 +3,7 @@ package Repositorios;
 import ClassesBasicas.Cidade;
 import ClassesBasicas.Equipamento;
 import ClassesBasicas.Monstro;
+import Excecoes.CidadeNaoExisteException;
 
 // Definição e criação do repositório de Cidade com lista
 public class RepositorioCidadeArray implements RepositorioCidade {
@@ -30,14 +31,13 @@ public class RepositorioCidadeArray implements RepositorioCidade {
     }
 
     // Procura uma cidade e retorna suas informações caso encontrada
-    public Cidade procurar(String nome){
-
-            for(int i = 0; i < this.cidadeArray.length; i++){
+    public Cidade procurar(String nome) throws CidadeNaoExisteException {
+            for(int i = 0; i < this.cidadeArray.length && cidadeArray[i] != null; i++){
                 if (nome.equals(cidadeArray[i].getCidade())){
                     return cidadeArray[i];
                 }
             }
-            return null;
+            throw new CidadeNaoExisteException();
         }
 
         // Remove uma cidade do array
