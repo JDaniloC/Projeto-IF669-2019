@@ -109,7 +109,7 @@ public class InterfaceUsuario {
 
         try {
             // Removendo todos
-            programa.procurarEquipamento("TornozeleiraBeserk");
+            programa.procurarEquipamento("TornozeleiraBerserk");
             System.out.println("Encontrou TornozeleiraBeserk.");
             programa.removerEquipamento("TornozeleiraBerserk");
             System.out.println("Removeu TornozeleiraBerserk");

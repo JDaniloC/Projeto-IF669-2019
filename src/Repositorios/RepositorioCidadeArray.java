@@ -47,7 +47,7 @@ public class RepositorioCidadeArray implements RepositorioCidade {
                 cidadeArray[i] = cidadeArray[cidadeArray.length - 1];
                 Cidade[] aux = new Cidade[cidadeArray.length - 1];
                 for (int j = 0; j < cidadeArray.length - 1; j++) {
-                    aux[i] = cidadeArray[i];
+                    aux[j] = cidadeArray[j];
                 }
                 cidadeArray = aux;
             }
