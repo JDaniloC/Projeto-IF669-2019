@@ -118,6 +118,9 @@ public class FachadaPersonagem{
                     person.plusMovimentos(quant);
                     break;
                 case "Vida":
+                    if (quant > Integer.parseInt(person.getInformacoes()[0])){
+                        quant = Integer.parseInt(person.getInformacoes()[0]);
+                    }
                     person.plusVida(quant);
                     break;
                 default:
@@ -138,15 +141,23 @@ public class FachadaPersonagem{
         if (quant > 0){
             switch (escolha){
                 case "Ataque":
+                    if (quant > person.getAtaque()){
+                        quant = person.getAtaque();
+                    }
                     person.danoAtaque(quant);
                     break;
                 case "Mp":
+                    if (quant > person.getMp()){
+                        quant = person.getMp();
+                    }
                     person.gastaMp(quant);
                     break;
                 case "Defesa":
+                    quant = quant > person.getDefesa() ? person.getDefesa() : quant;
                     person.danoDefesa(quant);
                     break;
                 case "Movimento":
+                    quant = quant > person.getMovimentos() ? person.getMovimentos() : quant;
                     person.danoMovimento(quant);
                     break;
                 default:
@@ -156,7 +167,7 @@ public class FachadaPersonagem{
             throw new EntradaInvalidaException();
         }
     }
-    public void danoVida(String nome, String condicao, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{
+    public Equipamento danoVida(String nome, String condicao, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{
         /*
         Decrementa a vida de um personagem.
         Recebe o nome, a condição (para ver se é uma fraqueza do mesmo) e a quantidade de dano.
@@ -170,7 +181,12 @@ public class FachadaPersonagem{
                     quant += 10;
                 }
             }
-            person.danoVida(quant);
+            if (quant >= person.getVida()){
+                return person.morre();
+            } else{
+                person.danoVida(quant);
+                return null;
+            }
         } else{
             throw new EntradaInvalidaException();
         }
@@ -205,6 +221,10 @@ public class FachadaPersonagem{
     public String getNome(String nome) throws PersonagemNaoExisteException{
         Personagem person = procurar(nome);
         return person.getNome(); 
+    }
+    public String[] getFraqueza(String nome) throws PersonagemNaoExisteException{
+        Personagem person = procurar(nome);
+        return person.getFraqueza();
     }
     public Equipamento getLoot(String nome) throws PersonagemNaoExisteException{
         Personagem person = procurar(nome);

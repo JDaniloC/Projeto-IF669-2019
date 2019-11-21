@@ -16,6 +16,20 @@ public abstract class Personagem {
     private Magia poderes;
     private Equipamento loot;
 
+    public Personagem (String nome, int vida, int mp, int ataque, int defesa, int movimentos, int nivel, String[] fraqueza, Magia poder, Equipamento loot){
+        this.nome = nome;
+        this.vida = vida;
+        this.mp = mp;
+        this.ataque = ataque;
+        this.defesa = defesa;
+        this.movimentos = movimentos;
+        this.nivel = nivel;
+        this.fraqueza = fraqueza;
+        this.poderes = poder;
+        this.loot = loot;
+        informacoes = new String[]{Integer.toString(vida), Integer.toString(mp), Integer.toString(ataque),
+                Integer.toString(defesa), Integer.toString(movimentos)};
+    }
     /*
     Metodos abstratos, devido a diferença de reações.
     */
@@ -45,23 +59,23 @@ public abstract class Personagem {
         Aumenta a vida natural em certo valor.
         int plus: O valor que será acrescentado.
          */
-        informacoes[0] += plus;
+        informacoes[0] = Integer.toString(Integer.parseInt(informacoes[0]) + plus);
         vida += plus;
     }
     public void upgradeMp(int plus){
-        informacoes[1] += plus;
+        informacoes[1] = Integer.toString(Integer.parseInt(informacoes[1]) + plus);
         mp += plus;
     }
     public void upgradeAtaque(int plus){
-        informacoes[2] += plus;
+        informacoes[2] = Integer.toString(Integer.parseInt(informacoes[2]) + plus);
         ataque += plus;
     }
     public void upgradeDefesa(int plus){
-        informacoes[3] += plus;
+        informacoes[3] = Integer.toString(Integer.parseInt(informacoes[3]) + plus);
         defesa += plus;
     }
     public void upgradeMovimentos(int plus){
-        informacoes[4] += plus;
+        informacoes[4] = Integer.toString(Integer.parseInt(informacoes[4]) + plus);
         movimentos += plus;
     }
 
@@ -74,9 +88,6 @@ public abstract class Personagem {
         int plus: Valor recuperado.
          */
         this.vida += plus;
-        if (vida > Integer.parseInt(informacoes[0])){
-            vida = Integer.parseInt(informacoes[0]);
-        }
     }
     public void plusMp(int plus) { this.mp += plus; }
     public void plusAtaque(int plus) { this.ataque += plus; }
@@ -86,12 +97,7 @@ public abstract class Personagem {
     /*
     Métodos dano diminuem o valor dos atributos.
      */
-    public void danoVida(int dano) {
-        this.vida -= dano;
-        if (this.vida <= 0){
-            this.morre();
-        }
-    }
+    public void danoVida(int dano) { this.vida -= dano; }
     public void gastaMp (int gasto) { this.mp -= gasto; }
     public void danoAtaque(int dano) { this.ataque -= dano; }
     public void danoDefesa(int dano) { this.defesa -= dano; }
@@ -108,7 +114,8 @@ public abstract class Personagem {
     public int getNivel() { return nivel; }
     public String getNome(){ return nome; }
     public String[] getFraqueza(){ return fraqueza; }
-    public Magia getPoderes(){ return poderes; }
+    public Magia getPoderes(){
+        return poderes; }
     public Equipamento getLoot(){ return loot; }
     public String[] getInformacoes(){ return informacoes; }
 

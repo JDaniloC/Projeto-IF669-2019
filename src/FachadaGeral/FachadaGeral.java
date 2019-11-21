@@ -58,8 +58,8 @@ public class FachadaGeral{
     public void danoPersonagem(String nome, String escolha, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{ 
         fachadaPersonagem.dano(nome, escolha, quant); 
     }
-    public void danoVidaPersonagem(String nome, String condicao, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{ 
-        fachadaPersonagem.danoVida(nome, condicao, quant); 
+    public Equipamento danoVidaPersonagem(String nome, String condicao, int quant) throws PersonagemNaoExisteException, EntradaInvalidaException{
+        return fachadaPersonagem.danoVida(nome, condicao, quant);
     }
     public void UpPersonagem(String nome) throws PersonagemNaoExisteException{ fachadaPersonagem.Up(nome); }
     public void mataPersonagem(String nome) throws PersonagemNaoExisteException{ fachadaPersonagem.Morre(nome); }
@@ -73,15 +73,22 @@ public class FachadaGeral{
     public int getMovimentosPersonagem(String nome) throws PersonagemNaoExisteException { return fachadaPersonagem.getMovimentos(nome); }
     public int getNivelPersonagem(String nome) throws PersonagemNaoExisteException { return fachadaPersonagem.getNivel(nome); }
     public String getNomePersonagem(String nome) throws PersonagemNaoExisteException{ return fachadaPersonagem.getNome(nome); }
-
+    public String[] getFraquezaPersonagem(String nome) throws PersonagemNaoExisteException{ return fachadaPersonagem.getFraqueza(nome); }
+    public Equipamento getLootPersonagem(String nome) throws PersonagemNaoExisteException{ return fachadaPersonagem.getLoot(nome); }
+    public Magia getMagiaPersonagem(String nome) throws PersonagemNaoExisteException{ return fachadaPersonagem.getMagia(nome); }
+    public String[] getInformacoes(String nome) throws PersonagemNaoExisteException{ return fachadaPersonagem.getInformacoes(nome); }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Cidade
 
     public void cadastrarCidade(Cidade cidade) throws CidadeJaExisteException, PopulacaoInvalidaException, CidadeInvalidaException,
     MissaoInvalidaException, PersonagemNaoExisteException, EquipamentoNaoEncontradoException {
-        procurarEquipamento(cidade.getVendedor().getNome());
-        procurarPersonagem(cidade.getMonstro().getNome());
-        fachadaCidade.inserir(cidade); 
+        if (cidade != null) {
+            procurarEquipamento(cidade.getVendedor().getNome());
+            procurarPersonagem(cidade.getMonstro().getNome());
+            fachadaCidade.inserir(cidade);
+        } else{
+            throw new CidadeInvalidaException();
+        }
     }
     
     public void atualizarCidade(Cidade cidade) throws CidadeNaoExisteException, CidadeInvalidaException, EquipamentoNaoEncontradoException, 

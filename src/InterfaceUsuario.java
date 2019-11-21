@@ -3,6 +3,8 @@ import Excecoes.*;
 import Repositorios.*;
 import FachadaGeral.*;
 import FachadasNegocio.*;
+
+import java.util.Arrays;
 import java.util.Random;
 
 public class InterfaceUsuario {
@@ -266,11 +268,13 @@ public class InterfaceUsuario {
             programa.adicionarPersonagem(personagem02);
             System.out.println("Julio cadastrado.");
             System.out.printf("Nível: %d\n", programa.getNivelPersonagem("Julio"));
+            System.out.printf("Vida: %d\n", programa.getVidaPersonagem("Julio"));
             personagem02.Up();
             // Mudando o nível e atualizando.
             programa.atualizarPersonagem(personagem02);
             System.out.println("Julio modificado.");
             System.out.printf("Nível: %d\n", programa.getNivelPersonagem("Julio"));
+            System.out.printf("Vida: %d\n", programa.getVidaPersonagem("Julio"));
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -304,10 +308,13 @@ public class InterfaceUsuario {
 
         try{
             // EntradaInvalidaException
-            System.out.printf("Mp de João: %d\n", programa.getMpPersonagem("João"));
-            programa.danoPersonagem("João", "Mp", 5);
+            System.out.printf("Vida de João: %d\n", programa.getVidaPersonagem("João"));
+            System.out.printf("Fraquezas de João: %s\n", Arrays.toString(programa.getFraquezaPersonagem("João")));
+            String fraqueza = criaFraqueza()[0];
+            System.out.printf("Ataque tipo: %s\n", fraqueza);
+            programa.danoVidaPersonagem("João", fraqueza, 15);
             System.out.println("João sofreu dano!");
-            System.out.printf("Mp de João: %d\n", programa.getMpPersonagem("João"));
+            System.out.printf("Vida de João: %d\n", programa.getVidaPersonagem("João"));
             programa.danoPersonagem("Danilo", "Errado", 10);
         } catch (Exception e){
             System.out.println(e.getMessage());
