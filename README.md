@@ -1,4 +1,4 @@
-# Projeto-IF669-IP
+# Projeto-IF669
 
 > RPG Companion
 
