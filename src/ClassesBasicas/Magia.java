@@ -53,13 +53,13 @@ public class Magia {
 		this.tipo = tipo;
 	}
 	//Construtores 
-	public Magia() {
-		this.nome = null;
+	public Magia(String nome) {
+		this.nome = nome;
 		this.dano = 0;
 		this.gasto = 0;
 		this.cura = 0;
-		this.efeito = null;
-		this.tipo = null;
+		this.efeito = "nenhum";
+		this.tipo = "normal";
 	}
 	
 	public Magia(String nome, int dano, int gasto, int cura, String efeito, String tipo) {

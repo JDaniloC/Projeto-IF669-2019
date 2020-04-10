@@ -17,7 +17,7 @@ public class FachadaCidade{
     // Verificação de existência da cidade
     public boolean existe(String nome){ return repositorioCidade.existe(nome);}
 
-    public void inserir(Cidade cidade) throws CidadeJaExisteException, CidadeInvalidaException, PopulacaoInvalidaException, 
+    public void inserir(Cidade cidade) throws CidadeJaExisteException, PopulacaoInvalidaException,
     CidadeInvalidaException, MissaoInvalidaException{
         if (cidade != null)
         {
