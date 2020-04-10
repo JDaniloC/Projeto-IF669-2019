@@ -13,11 +13,12 @@
 ## Desenvolvimento
 -------------
 
-<img align='right' width='46%' src='.github/menu.png'>
-
 ### Classes bases:
 - [x] [Personagem](./src/ClassesBasicas/Personagem.java)
 - [x] [Herói](./src/ClassesBasicas/Heroi.java)
+
+<img align='right' width='46%' src='.github/menu.png'>
+
 - [x] [Monstro](./src/ClassesBasicas/Monstro.java)
 - [x] [Equipamento](./src/ClassesBasicas/Equipamento.java)
 - [x] [Magia](./src/ClassesBasicas/Magia.java)
