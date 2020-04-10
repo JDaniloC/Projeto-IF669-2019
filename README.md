@@ -80,9 +80,10 @@
 - [x] [Cidade](./src/FachadasNegocio/FachadaCidade.java)
 - [x] [Magia](./src/FachadasNegocio/FachadaMagia.java)
 
+### Fachada Geral, Teste e Interface de Usuário
+
 <img align='right' width='46%' src='.github/search.png'>
 
-### Fachada Geral, Teste e Interface de Usuário
 - [x] [Fachada Geral](./src/FachadaGeral/FachadaGeral.java)
 - [x] [Classe Teste](./src/Tester.java)
 - [x] [Interface de Usuário](./src/InterfaceUsuario.java)
