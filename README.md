@@ -13,9 +13,10 @@
 ## Desenvolvimento
 -------------
 
+### Classes bases:
+
 <img align='right' width='46%' src='.github/menu.png'>
 
-### Classes bases:
 - [x] [Personagem](./src/ClassesBasicas/Personagem.java)
 - [x] [Herói](./src/ClassesBasicas/Heroi.java)
 - [x] [Monstro](./src/ClassesBasicas/Monstro.java)
