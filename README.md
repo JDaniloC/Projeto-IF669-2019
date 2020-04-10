@@ -90,4 +90,4 @@
 - [x] [Interface Gráfica](./src/InterfaceUsuario.java)
 
 ### Comentado
-:white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_large_square:
+:white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark:
