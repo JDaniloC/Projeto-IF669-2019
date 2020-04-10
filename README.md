@@ -1,5 +1,7 @@
 # Projeto-IF669
 
+<img align='right' width='46%' src='.github/config.png'>
+
 > RPG Companion
 
 ### Integrantes
@@ -9,8 +11,9 @@
 - Thiago Henrique - Equipamento
 
 ## Desenvolvimento
-
 -------------
+
+<img align='right' width='46%' src='.github/menu.png'>
 
 ### Classes bases:
 - [x] [Personagem](./src/ClassesBasicas/Personagem.java)
@@ -25,6 +28,10 @@
     - [x] [Interface](./src/Repositorios/RepositorioPersonagem.java)
         - [x] [Array](./src/Repositorios/RepositorioPersonagemArray.java)
         - [x] [Lista](./src/Repositorios/RepositorioPersonagemLista.java)
+
+<img align='right' width='46%' src='.github/choices.png'>
+
+
  - [x] de Equipamentos
     - [x] [Interface](./src/Repositorios/RepositorioEquipamento.java)
         - [x] [Array](./src/Repositorios/RepositorioEquipamentoArray.java)
@@ -37,6 +44,8 @@
     - [x] [Interface](./src/Repositorios/RepositorioCidade.java)
         - [x] [Array](./src/Repositorios/RepositorioCidadeArray.java)
         - [x] [Lista](./src/Repositorios/RepositorioCidadeLista.java)
+
+<img align='right' width='46%' src='.github/sigin.png'>
 
 ### Excecoes:
 - [x] Personagem
@@ -57,10 +66,12 @@
     - [x] [Missão Inválida](./src/Excecoes/MissaoInvalidaException.java)
     - [x] [População Inválida](./src/Excecoes/PopulacaoInvalidaException.java)
 
+<img align='right' width='46%' src='.github/update.png'>
+
 ### Classe abstrata:
 - [x] [Personagem](./src/ClassesBasicas/Personagem.java)
- - Heróis
- - Monstros
+ - [x] [Heróis](./src/ClassesBasicas/Heroi.java)
+ - [x] [Monstros](./src/ClassesBasicas/Monstro.java)
 
 ### Fachada de Negócio
 - [x] [Personagem](./src/FachadasNegocio/FachadaPersonagem.java)
@@ -68,9 +79,13 @@
 - [x] [Cidade](./src/FachadasNegocio/FachadaCidade.java)
 - [x] [Magia](./src/FachadasNegocio/FachadaMagia.java)
 
-### Fachada Geral e Interface de Usuário
+<img align='right' width='46%' src='.github/search.png'>
+
+### Fachada Geral, Teste e Interface de Usuário
 - [x] [Fachada Geral](./src/FachadaGeral/FachadaGeral.java)
-- [x] [Interface de Usuário](./src/FachadaGeral/InterfaceUsuario.java)
+- [x] [Classe Teste](./src/Tester.java)
+- [x] [Interface de Usuário](./src/InterfaceUsuario.java)
+- [x] [Interface Gráfica](./src/InterfaceUsuario.java)
 
 ### Comentado
 :white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_check_mark::white_large_square:
